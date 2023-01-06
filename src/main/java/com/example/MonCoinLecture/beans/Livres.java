@@ -23,14 +23,14 @@ public class Livres {
     private String editeur = "";
     private String genre = "";
     private String type = "";
-    private Date datePublication;
+    private Date datePubli;
     private BufferedImage couverture;
     private String resume = "";
 
     public Livres() {
     }
 
-    public Livres(int ID, String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePublication, BufferedImage couverture, String resume) {
+    public Livres(int ID, String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, BufferedImage couverture, String resume) {
         this.ID = ID;
         this.titre = titre;
         this.titreSerie = titreSerie;
@@ -41,7 +41,7 @@ public class Livres {
         this.editeur = editeur;
         this.genre = genre;
         this.type = type;
-        this.datePublication = datePublication;
+        this.datePubli = datePubli;
         this.couverture = couverture;
         this.resume = resume;
     }
@@ -59,7 +59,7 @@ public class Livres {
                 ", editeur='" + editeur + '\'' +
                 ", genre='" + genre + '\'' +
                 ", type='" + type + '\'' +
-                ", datePublication=" + datePublication +
+                ", datePubli=" + datePubli +
                 ", couverture=" + couverture +
                 ", resume='" + resume + '\'' +
                 '}';
@@ -105,8 +105,8 @@ public class Livres {
         return type;
     }
 
-    public Date getDatePublication() {
-        return datePublication;
+    public Date getDatePubli() {
+        return datePubli;
     }
 
     public BufferedImage getCouverture() {
@@ -157,8 +157,8 @@ public class Livres {
         this.type = type;
     }
 
-    public void setDatePublication(Date datePublication) {
-        this.datePublication = datePublication;
+    public void setDatePublication(Date datePubli) {
+        this.datePubli = datePubli;
     }
 
     public void setCouverture(BufferedImage couverture) {
