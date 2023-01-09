@@ -87,6 +87,22 @@ a{
     font-weight: bolder;
 }
 
-div{
-    
+.ligne-de-livre{
+justify-content: center;
+
+}
+
+table{
+text-align: center;
+justify-content: center;
+table-layout: auto;
+width: 100%;
+}
+
+.miniature-couverture{
+    width: 50px;
+}
+
+.commentaire{
+
 }
