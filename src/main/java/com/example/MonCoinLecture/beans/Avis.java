@@ -1,9 +1,6 @@
 package com.example.MonCoinLecture.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Avis {
@@ -11,49 +8,44 @@ public class Avis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int ID;
-    private int id_utilisateur;
-    private int id_livre;
     private String avancement;
     private int note;
     private String commentaire;
 
     private int id_livre_suggestion;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Utilisateurs utilisateur = new Utilisateurs();
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Livres livre = new Livres();
     public Avis() {
     }
 
-    public Avis(int id_utilisateur, int id_livre, String avancement, int note, String commentaire, int id_livre_suggestion) {
-        this.id_utilisateur = id_utilisateur;
-        this.id_livre = id_livre;
+    public Avis(String avancement, int note, String commentaire, int id_livre_suggestion, Utilisateurs utilisateur, Livres livre) {
         this.avancement = avancement;
         this.note = note;
         this.commentaire = commentaire;
         this.id_livre_suggestion = id_livre_suggestion;
+        this.utilisateur = utilisateur;
+        this.livre = livre;
     }
 
     @Override
     public String toString() {
         return "Avis{" +
                 "ID=" + ID +
-                ", id_utilisateur=" + id_utilisateur +
-                ", id_livre=" + id_livre +
                 ", avancement='" + avancement + '\'' +
                 ", note=" + note +
                 ", commentaire='" + commentaire + '\'' +
                 ", id_livre_suggestion=" + id_livre_suggestion +
+                ", Utilisateur=" + utilisateur +
+                ", livre=" + livre +
                 '}';
     }
 
     public int getID() {
         return ID;
-    }
-
-    public int getId_utilisateur() {
-        return id_utilisateur;
-    }
-
-    public int getId_livre() {
-        return id_livre;
     }
 
     public String getAvancement() {
@@ -76,14 +68,6 @@ public class Avis {
         this.ID = ID;
     }
 
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
-    }
-
-    public void setId_livre(int id_livre) {
-        this.id_livre = id_livre;
-    }
-
     public void setAvancement(String avancement) {
         this.avancement = avancement;
     }
@@ -98,5 +82,21 @@ public class Avis {
 
     public void setId_livre_suggestion(int id_livre_suggestion) {
         this.id_livre_suggestion = id_livre_suggestion;
+    }
+
+    public Utilisateurs getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateurs utilisateur) {
+        utilisateur = utilisateur;
+    }
+
+    public Livres getLivre() {
+        return livre;
+    }
+
+    public void setLivre(Livres livre) {
+        this.livre = livre;
     }
 }

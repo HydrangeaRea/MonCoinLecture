@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/css.css" />
+</head>
+<body>
+
+<script src='http://code.jquery.com/jquery.min.js'></script>
+
+<div class="container-vert">
+    <div class="head-placeholder"></div>
+
+    <div class="container">
+        <aside class="membre-placeholder"></aside>
+        <section class="block_content">
+            <h1>Mes Informations</h1>
+            Description : <input type="text" id="description" /> <br/>
+            <button id="button">Valider les modifications</button>
+        </section>
+
+    </div>
+    <footer class="footer"></footer>
+</div>
+
+<script src="js/scriptEnCommun.js"></script>
+
+
+<script>
+$('#button').on("click", function() {
+    let valeurs = {pseudo: sessionStorage.pseudo,description: $('#description').val()};
+    $.ajax({
+    type: "POST",
+    headers: {"Content-Type": "application/JSON"},
+    url: "http://localhost:8080/API/modificationCompteUtilisateur",
+    data: JSON.stringify(valeurs),
+    success: function(resultat) {
+      alert(resultat);
+    }
+    });
+    console.log(JSON.stringify(valeurs));
+  });
+
+</script>
+
+</body>
+</html>

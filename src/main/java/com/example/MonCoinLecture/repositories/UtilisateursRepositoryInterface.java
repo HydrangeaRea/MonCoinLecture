@@ -8,7 +8,8 @@ import java.util.List;
 public interface UtilisateursRepositoryInterface extends JpaRepository<Utilisateurs, Integer> {
 
     Utilisateurs findById(int id);
-    List<Utilisateurs> findByAdresseMail(String adresseMail);
-    List<Utilisateurs> findByPseudo(String pseudo);
+    Utilisateurs findByAdresseMail(String adresseMail);
+    Utilisateurs findByPseudo(String pseudo);
+    Utilisateurs findByMotDePasse(String motDePasse);
 
 }

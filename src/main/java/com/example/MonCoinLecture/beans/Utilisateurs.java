@@ -1,8 +1,11 @@
 package com.example.MonCoinLecture.beans;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-
+import java.awt.image.BufferedImage;
 import java.util.Date;
 
 @Entity
@@ -14,28 +17,22 @@ public class Utilisateurs {
     private String pseudo = "";
     private String motDePasse = "";
     private String adresseMail = "";
-    private String photo;
+    private BufferedImage photo;
     private String auteurFavori = "";
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Livres livreFavori;
+    private String livreFavori = "";
     private String description = "";
     private Date dateInscription;
 
     public Utilisateurs() {
     }
 
-    public Utilisateurs(String pseudo, String motDePasse, String adresseMail) {
-        this.pseudo = pseudo;
-        this.motDePasse = motDePasse;
-        this.adresseMail = adresseMail;
-    }
-
-    public Utilisateurs(String pseudo, String motDePasse, String adresseMail, String photo, String auteurFavori, String description, Date dateInscription) {
+    public Utilisateurs(String pseudo, String motDePasse, String adresseMail, BufferedImage photo, String auteurFavori, String livreFavori, String description, Date dateInscription) {
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
         this.adresseMail = adresseMail;
         this.photo = photo;
         this.auteurFavori = auteurFavori;
+        this.livreFavori = livreFavori;
         this.description = description;
         this.dateInscription = dateInscription;
     }
@@ -71,7 +68,7 @@ public class Utilisateurs {
         return adresseMail;
     }
 
-    public String getPhoto() {
+    public BufferedImage getPhoto() {
         return photo;
     }
 
@@ -79,7 +76,7 @@ public class Utilisateurs {
         return auteurFavori;
     }
 
-    public Livres getLivreFavori() {
+    public String getLivreFavori() {
         return livreFavori;
     }
 
@@ -91,39 +88,5 @@ public class Utilisateurs {
         return dateInscription;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
-    }
-
-    public void setAdresseMail(String adresseMail) {
-        this.adresseMail = adresseMail;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public void setAuteurFavori(String auteurFavori) {
-        this.auteurFavori = auteurFavori;
-    }
-
-    public void setLivreFavori(Livres livreFavori) {
-        this.livreFavori = livreFavori;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setDateInscription(Date dateInscription) {
-        this.dateInscription = dateInscription;
-    }
 }
