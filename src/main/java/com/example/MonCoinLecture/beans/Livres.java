@@ -1,9 +1,6 @@
 package com.example.MonCoinLecture.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.awt.image.BufferedImage;
 import java.util.Date;
@@ -24,13 +21,14 @@ public class Livres {
     private String genre = "";
     private String type = "";
     private Date datePubli;
-    private BufferedImage couverture;
+    private String couverture;
+    @Column(columnDefinition = "TEXT")
     private String resume = "";
 
     public Livres() {
     }
 
-    public Livres(String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, BufferedImage couverture, String resume) {
+    public Livres(String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, String couverture, String resume) {
         this.titre = titre;
         this.titreSerie = titreSerie;
         this.volume = volume;
@@ -108,7 +106,7 @@ public class Livres {
         return datePubli;
     }
 
-    public BufferedImage getCouverture() {
+    public String getCouverture() {
         return couverture;
     }
 
@@ -160,7 +158,7 @@ public class Livres {
         this.datePubli = datePubli;
     }
 
-    public void setCouverture(BufferedImage couverture) {
+    public void setCouverture(String couverture) {
         this.couverture = couverture;
     }
 
