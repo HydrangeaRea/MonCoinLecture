@@ -1,5 +1,6 @@
 package com.example.MonCoinLecture.controller;
 
+import com.example.MonCoinLecture.repositories.*;
 
 import com.example.MonCoinLecture.beans.Livres;
 import com.example.MonCoinLecture.beans.Utilisateurs;
@@ -16,11 +17,17 @@ import java.util.Date;
 public class MainWebController {
 
     @Autowired
-    private UtilisateursRepositoryInterface utilisateursRepositoryInterface;
+    private LivresRepositoryInterface livresRepositoryInterface;
     @Autowired
-    private livres_repositories_interface livresRepositoriesInterface;
+    private  UtilisateursRepositoryInterface utilisateursRepositoryInterface;
+    @Autowired
+    private AvisRepositoryInterface avisRepositoryInterface;
 
-
+    @GetMapping("/ajouterAvis)")
+    public String Ajouter_Avis(@RequestBody Avis avis1) {
+        avisRepositoryInterface.save(avis1);
+        return "OK";
+    }
 
     @PostMapping("/ajoutUtilisateur")
     public String ajoutUtilisateur (@RequestBody Utilisateurs utilisateur) {
@@ -37,8 +44,6 @@ public class MainWebController {
             return "Vous possédez déjà un compte.";
         }
     }
-
-
 
     @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {

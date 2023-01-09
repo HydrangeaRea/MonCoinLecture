@@ -1,16 +1,23 @@
-link_bouton_auteur = document.getElementById("auteur");
-link_bouton_titre = document.getElementById("titre");
-link_bouton_illustrateur = document.getElementById("illustrateur");
+function getValue() {
+    var input_nom_membre = document.getElementById("input_nom_membre").value;
+    var input_nom_livre = document.getElementById("input_nom_livre").value;
+    var input_avancement = document.getElementById("avancement").value;
+    var input_note = document.getElementById("input_note").value;
+    var input_commentaire= document.getElementById("input_commentaire").value;
+    var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
+    var test = document.getElementById("phrase");
 
 
-link_bouton_auteur.addEventListener("click", function(){
-    alert("j'ai cliqué sur auteur");
-})
-
-link_bouton_titre.addEventListener("click", function(){
-    alert("j'ai cliqué sur titre");
-})
-
-link_bouton_illustrateur.addEventListener("click", function(){
-    alert("j'ai cliqué sur illustrateur");
-})
+    let avis1= {avancement: avancement, commentaire: input_commentaire, id_livre: input_nom_livre, id_livre_suggestion: input_suggestion_livre, id_utilisateur: input_nom_membre, note: input_note}
+    test.innerHTML= avis1;
+    $.ajax({
+        type: "POST",
+        headers: {"Content-type" : "application/json"},
+        url: "http://localhost:8080/API/ajouterAvis",
+        data: JSON.stringify(avis1),
+        success: function(avis1) {
+            alert("L'API m'a retourné "+ avis1);
+            console.log(avis1);
+        }
+    });
+}
