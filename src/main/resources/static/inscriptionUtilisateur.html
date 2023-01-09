@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="css/css.css" />
+</head>
+
+<body>
+
+  <script src='http://code.jquery.com/jquery.min.js'></script>
+
+
+
+  <div class="container-vert">
+    <div class="head-placeholder"></div>
+
+    <div class="container">
+      <aside class="membre-placeholder"></aside>
+      <section class="block_content">
+        <h1>Inscription</h1>
+        Pseudo : <input type="text" id="pseudo" /> <br />
+        Adresse Mail : <input type="text" id="mail" /> <br />
+        Mot de Passe : <input type="password" id="mdp" /> <br />
+        <button id="button">Valider l'inscription</button>
+      </section>
+
+      <section class="block_content">
+        <h1>Connexion</h1>
+        Pseudo : <input type="text" id="pseudo2" /> <br />
+        Mot de Passe : <input type="password" id="mdp2" /> <br />
+        <button id="button2">Connexion</button>
+      </section>
+
+      <section class="block_content">
+        <h1>Déconnexion</h1>
+        <button id="button3">Déconnexion</button>
+      </section>
+    </div>
+    <footer class="footer"></footer>
+  </div>
+
+  <script src="js/scriptEnCommun.js"></script>
+  <script>
+
+    $('#button').on("click", function () {
+      let valeurs = { pseudo: $('#pseudo').val(), adresseMail: $('#mail').val(), motDePasse: $('#mdp').val() };
+      $.ajax({
+        type: "POST",
+        headers: { "Content-Type": "application/JSON" },
+        url: "http://localhost:8080/API/ajoutUtilisateur",
+        data: JSON.stringify(valeurs),
+        success: function (resultat) {
+          alert(resultat);
+        }
+      });
+      console.log(JSON.stringify(valeurs));
+    });
+  </script>
+
+ <script>
+   /*$('#button2').on("click", function () {
+      let pseudo = $('#pseudo2').val();
+      let motDePasse = $('#mdp2').val();
+      sessionStorage.pseudo = pseudo;
+      sessionStorage.motDePasse = motDePasse;
+    });*/
+
+    $('#button2').on("click", function () {
+      let valeurs = {pseudo: $('#pseudo2').val(), motDePasse: $('#mdp2').val()};
+      $.ajax({
+        type: "POST",
+        headers: { "Content-Type": "application/JSON" },
+        url: "http://localhost:8080/API/connexion",
+        data: JSON.stringify(valeurs),
+        success: function (resultat) {
+          if (resultat == "ok") {
+            sessionStorage.pseudo = $('#pseudo2').val();
+            sessionStorage.motDePasse = $('#mdp2').val();
+          }
+          else {
+            alert("Vérifiez le pseudo ou le mot de passe.");
+          }
+        }
+      });
+      console.log(JSON.stringify(valeurs));
+    });
+ </script>
+
+  <script>
+   $('#button3').on("click", function () {
+    sessionStorage.clear();
+    });
+ </script>
+
+</body>
+
+</html>
