@@ -1,9 +1,6 @@
 package com.example.MonCoinLecture.controller;
 
-import com.example.MonCoinLecture.beans.Livres;
 import com.example.MonCoinLecture.repositories.*;
-
-import com.example.MonCoinLecture.beans.Livres;
 import com.example.MonCoinLecture.beans.*;
 import com.example.MonCoinLecture.repositories.UtilisateursRepositoryInterface;
 import com.example.MonCoinLecture.repositories.LivresRepositoryInterface;
@@ -56,19 +53,6 @@ public class MainWebController {
 
 
 
-    @GetMapping ("/ajoutLivresEnBaseTest")
-    public String ajoutLivresEnBaseTest () {
-        Livres livre1 = new Livres("Harry Potter à l'école des sorciers", "Harry Potter", "1/7", "Terminée",
-                "J. K. Rowling", "NULL", "Gallimard", "Fantasy", "Roman",
-                new Date("16/11/1998"), "src=img / harry_potter_tome_1.jpg", "Le jour de ses onze ans, " +
-                "Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. " +
-                "Un géant vient le chercher pour l'emmener à Poudlard, la célèbre école de sorcellerie où une place l'attend " +
-                "depuis toujours. Voler sur des balais, jeter des sorts, combattre les Trolls : Harry Potter se révèle un sorcier " +
-                "vraiment doué. Mais quel mystère entoure donc sa naissance et qui est l'effroyable V..., " +
-                "le mage dont personne n'ose prononcer le nom ?");
-        livresRepositoriesInterface.save(livre1);
-        return "OK";
-    }
 
     @GetMapping ("/bonjour")
     public String bonjour () {
