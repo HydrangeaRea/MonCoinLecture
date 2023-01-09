@@ -9,18 +9,23 @@ console.log(input_note);
 console.log(input_avancement);
 console.log(input_commentaire);
 console.log(input_suggestion_livre);
-
-
+console.log(input_nom_membre);
+console.log(input_nom_livre);
+if(input_nom_membre == ""){
+    alert("Vous devez être inscrit sur LeCoinLecture pour déposer un commentaire.")
+}
+else{
     let avis1= {avancement: avancement, commentaire: input_commentaire, id_livre: input_nom_livre, id_livre_suggestion: input_suggestion_livre, id_utilisateur: input_nom_membre, note: input_note}
+console.log(JSON.stringify(avis1));
+
     $.ajax({
         type: "POST",
-        headers: {"Content-type" : "application/json"},
-        url: "http://localhost:8080/API/ajouterAvis",
+        headers: { "Content-type": "application/JSON" },
+        url: "http://localhost:8080/API/Avis",
         data: JSON.stringify(avis1),
-        success: function(avis1) {
-            alert("L'API m'a retourné "+ avis1);
-            console.log(avis1);
+        success: function(resultat) {
+            alert(resultat);
+          console.log(avis1);
         }
-    });
-}
-
+    })}
+};
