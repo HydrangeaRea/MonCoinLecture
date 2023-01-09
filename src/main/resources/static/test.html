@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.rtl.min.css">
+    <title>Title</title>
+</head>
+<body>
+<script src='http://code.jquery.com/jquery-3.6.0.min.js '></script>
+<script src="test.js"></script>
+<br><br>
+
+
+// QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN COMMENTAIRE!
+<span>ID membre</span><input disabled="disabled" type="text" id="input_nom_membre" required
+       minlength="2" maxlength="4" size="10"><br><br>
+
+
+// QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA PREREMPLI!
+
+<span>Nom du livre</span><input  disabled="disabled" type="text" id="input_nom_livre" required
+       minlength="2" maxlength="4" size="10">
+<br><br>
+
+Evaluation: <select id="note" name="p2"><option value=0>0</option><option value=1>1</option><option value=2">2</option><option value=3>3</option><option value=4">4</option><option value=5>5</option><br><br></select>
+
+<br><br>
+Avancement de la lecture :<select id="avancement" name="p2"><option value="Lu">Lu</option><option value="En cours de lecture">En cours de lecture</option><option value="A lire">A lire</option><br><br></select>
+
+<br><br>
+    <span>Entrer commentaire</span><input type="text" id="input_commentaire" required
+       minlength="2" maxlength="500" size="10">
+<br><br>
+    <span>Entrer suggestion livre</span><input type="text" id="input_suggestion_livre" required
+       minlength="2" maxlength="4" size="10">
+<br><br>
+
+<button id="bouton_ok" onclick="getValue()";> Donner mon avis! </button><br><br>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
