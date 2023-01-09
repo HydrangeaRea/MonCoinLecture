@@ -5,6 +5,10 @@ function getValue() {
     var input_note = document.getElementById("note").value;
     var input_commentaire= document.getElementById("input_commentaire").value;
     var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
+console.log(input_note);
+console.log(input_avancement);
+console.log(input_commentaire);
+console.log(input_suggestion_livre);
 
 
     let avis1= {avancement: avancement, commentaire: input_commentaire, id_livre: input_nom_livre, id_livre_suggestion: input_suggestion_livre, id_utilisateur: input_nom_membre, note: input_note}
