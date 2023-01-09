@@ -1,0 +1,108 @@
+body{
+    background-image: url("bg_pink.webp");
+    background-size: cover;
+}
+
+#test{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.navbar-custom {
+    background-color: pink;
+    font-weight: bold;
+}
+
+.dropdown-item{
+    text-align: center;
+}
+
+.block-membre{
+    block-size: 30%;
+    border-radius: 15px;
+    background-color: pink;
+    width: 20%;
+    padding: 1em;
+    text-align: center;
+}
+
+
+.block_content{
+    block-size: 70%;
+    align-items: flex-end;
+    border-radius: 15px;
+    background-color: pink;
+    width: 60%;
+    padding: 1em;
+}
+ 
+.container{
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: space-around;
+    
+}
+
+.photo-profil{
+    width: 200px;
+    height: auto;
+}
+
+.pseudo-membre{
+    font-size: large;
+}
+
+a{
+    color: blueviolet;
+}
+
+.container-vert{
+    align-items: center;
+    vertical-align: middle;
+}
+
+#container-info-livre{
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: space-around;
+}
+
+#colone-droite-livre{
+    block-size: 50%;
+}
+
+#colone-gauche-livre{
+    block-size: 50%;
+}
+
+#couverture{
+    width: 200px;
+    height: auto;
+}
+
+.span{
+    font-weight: bolder;
+}
+
+.ligne-de-livre{
+justify-content: center;
+
+}
+
+table{
+text-align: center;
+justify-content: center;
+table-layout: auto;
+width: 100%;
+}
+
+.miniature-couverture{
+    width: 50px;
+}
+
+.commentaire{
+
+}
