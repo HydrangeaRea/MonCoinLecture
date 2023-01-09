@@ -30,8 +30,7 @@ public class Livres {
     public Livres() {
     }
 
-    public Livres(int ID, String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, BufferedImage couverture, String resume) {
-        this.ID = ID;
+    public Livres(String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, BufferedImage couverture, String resume) {
         this.titre = titre;
         this.titreSerie = titreSerie;
         this.volume = volume;
