@@ -16,18 +16,19 @@ public class Avis {
     private String avancement;
     private int note;
     private String commentaire;
-    private int suggestion;
+
+    private int id_livre_suggestion;
 
     public Avis() {
     }
 
-    public Avis(int id_utilisateur, int id_livre, String avancement, int note, String commentaire, int suggestion) {
+    public Avis(int id_utilisateur, int id_livre, String avancement, int note, String commentaire, int id_livre_suggestion) {
         this.id_utilisateur = id_utilisateur;
         this.id_livre = id_livre;
         this.avancement = avancement;
         this.note = note;
         this.commentaire = commentaire;
-        this.suggestion = suggestion;
+        this.id_livre_suggestion = id_livre_suggestion;
     }
 
     @Override
@@ -39,7 +40,7 @@ public class Avis {
                 ", avancement='" + avancement + '\'' +
                 ", note=" + note +
                 ", commentaire='" + commentaire + '\'' +
-                ", suggestion=" + suggestion +
+                ", id_livre_suggestion=" + id_livre_suggestion +
                 '}';
     }
 
@@ -67,8 +68,8 @@ public class Avis {
         return commentaire;
     }
 
-    public int getSuggestion() {
-        return suggestion;
+    public int getId_livre_suggestion() {
+        return id_livre_suggestion;
     }
 
     public void setID(int ID) {
@@ -95,7 +96,7 @@ public class Avis {
         this.commentaire = commentaire;
     }
 
-    public void setSuggestion(int suggestion) {
-        this.suggestion = suggestion;
+    public void setId_livre_suggestion(int id_livre_suggestion) {
+        this.id_livre_suggestion = id_livre_suggestion;
     }
 }
