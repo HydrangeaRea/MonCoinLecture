@@ -88,39 +88,5 @@ public class Utilisateurs {
         return dateInscription;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
-    }
-
-    public void setAdresseMail(String adresseMail) {
-        this.adresseMail = adresseMail;
-    }
-
-    public void setPhoto(BufferedImage photo) {
-        this.photo = photo;
-    }
-
-    public void setAuteurFavori(String auteurFavori) {
-        this.auteurFavori = auteurFavori;
-    }
-
-    public void setLivreFavori(String livreFavori) {
-        this.livreFavori = livreFavori;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setDateInscription(Date dateInscription) {
-        this.dateInscription = dateInscription;
-    }
 }
