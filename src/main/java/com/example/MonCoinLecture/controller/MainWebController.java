@@ -1,33 +1,47 @@
 package com.example.MonCoinLecture.controller;
 
+import com.example.MonCoinLecture.repositories.*;
+
 import com.example.MonCoinLecture.beans.Avis;
 import com.example.MonCoinLecture.beans.Utilisateurs;
-import com.example.MonCoinLecture.beans.Livres;
-
-import com.example.MonCoinLecture.repositories.avisRepositoriesInterface;
-import com.example.MonCoinLecture.repositories.livresRepositoriesInterface;
-import com.example.MonCoinLecture.repositories.utilisateursRepositoriesInterface;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping ("/API")
 public class MainWebController {
 
     @Autowired
-    private livresRepositoriesInterface livresRepositoriesInterface;
+    private LivresRepositoryInterface livresRepositoryInterface;
     @Autowired
-    private  utilisateursRepositoriesInterface utilisateursRepositoriesInterface;
+    private  UtilisateursRepositoryInterface utilisateursRepositoryInterface;
     @Autowired
-    private avisRepositoriesInterface avisRepositoriesInterface;
+    private AvisRepositoryInterface avisRepositoryInterface;
 
     @GetMapping("/ajouterAvis)")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
-            avisRepositoriesInterface.save(avis1);
-            return "OK";
+        avisRepositoryInterface.save(avis1);
+        return "OK";
+    }
+
+    @PostMapping("/ajoutUtilisateur")
+    public String ajoutUtilisateur (@RequestBody Utilisateurs utilisateur) {
+        if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()).isEmpty() == true && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()).isEmpty() == true) {
+            utilisateursRepositoryInterface.save(utilisateur);
+            return "Félicitation vous êtes désormais membre de MonCoinLecture.";
+        } else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()).isEmpty() == false && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()).isEmpty() == true) {
+            return "Ce pseudo est déjà utilisé, veuillez en choisir un autre.";
+        }
+        else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()).isEmpty() == true && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()).isEmpty() == false) {
+            return "Cette adresse mail est déjà associée à un compte.";
+        }
+        else {
+            return "Vous possédez déjà un compte.";
+        }
+    }
+
+    @PostMapping("/modificationCompteUtilisateur")
+    public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
+        return "ok";
     }
 }
