@@ -10,16 +10,19 @@
 <script src="test.js"></script>
 <br><br>
 
-<div id="phrase">Rien!</div>
-<span>Entrer ID membre</span><input type="text" id="input_nom_membre" required
+
+// QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN COMMENTAIRE!
+<span>ID membre</span><input disabled="disabled" type="text" id="input_nom_membre" required
        minlength="2" maxlength="4" size="10"><br><br>
 
-<span>Entrer nom livre</span><input type="text" id="input_nom_livre" required
+
+// QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA PREREMPLI!
+
+<span>Nom du livre</span><input  disabled="disabled" type="text" id="input_nom_livre" required
        minlength="2" maxlength="4" size="10">
 <br><br>
-<span>Entrer note</span><input type="text" id="input_note" required
-       minlength="2" maxlength="1" size="10">
-<br><br>
+
+Evaluation: <select id="note" name="p2"><option value=0>0</option><option value=1>1</option><option value=2">2</option><option value=3>3</option><option value=4">4</option><option value=5>5</option><br><br></select>
 
 <br><br>
 Avancement de la lecture :<select id="avancement" name="p2"><option value="Lu">Lu</option><option value="En cours de lecture">En cours de lecture</option><option value="A lire">A lire</option><br><br></select>

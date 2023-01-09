@@ -1,5 +1,6 @@
 package com.example.MonCoinLecture.controller;
 
+import com.example.MonCoinLecture.beans.Livres;
 import com.example.MonCoinLecture.repositories.*;
 
 import com.example.MonCoinLecture.beans.Avis;
@@ -18,7 +19,7 @@ public class MainWebController {
     @Autowired
     private AvisRepositoryInterface avisRepositoryInterface;
 
-    @GetMapping("/ajouterAvis)")
+    @PostMapping("/ajouterAvis)")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
         avisRepositoryInterface.save(avis1);
         return "OK";
