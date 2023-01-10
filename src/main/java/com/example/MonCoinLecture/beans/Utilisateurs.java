@@ -16,8 +16,7 @@ public class Utilisateurs {
     private String adresseMail = "";
     private String photo;
     private String auteurFavori = "";
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Livres livreFavori;
+    private String livreFavori = "";
     private String description = "";
     private Date dateInscription;
 
@@ -79,7 +78,7 @@ public class Utilisateurs {
         return auteurFavori;
     }
 
-    public Livres getLivreFavori() {
+    public String getLivreFavori() {
         return livreFavori;
     }
 
@@ -115,7 +114,7 @@ public class Utilisateurs {
         this.auteurFavori = auteurFavori;
     }
 
-    public void setLivreFavori(Livres livreFavori) {
+    public void setLivreFavori(String livreFavori) {
         this.livreFavori = livreFavori;
     }
 
