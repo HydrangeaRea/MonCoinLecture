@@ -30,7 +30,7 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Que cherches_tu?" aria-label="Search">&emsp;
+                    <input  class="form-control me-2" type="text" placeholder="Que cherches_tu?" aria-label="Search">&emsp;
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Search by
                     </a>
@@ -45,45 +45,40 @@
     </nav>
 
 <script>
+var r= document.getElementsByClassName("form-control me-2").value;
+var recherche = JSON.stringify(r);
+
 function rechercherIllustrateur(){
+console.log("recherche = "+ recherche);
+console.log("r = "+r);
 alert("Bonjour");
-    var recherche= document.getElementsByClassName("form-control me-2");
     $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
         url: "localhost:8080/AffichageLivresRecherchesIllustrateur/"+recherche,
-        data: JSON.stringify(avis1),
         success: function(resultat) {
             alert(resultat);
-          console.log(avis1);
         }
     })};
-
     function rechercherAuteur(){
 alert("Bonjour");
-    var recherche= document.getElementsByClassName("form-control me-2");
     $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
         url: "localhost:8080/AffichageLivresRecherchesAuteur/"+recherche,
-        data: JSON.stringify(avis1),
         success: function(resultat) {
             alert(resultat);
-          console.log(avis1);
         }
     })};
 
     function rechercherTitre(){
 alert("Bonjour");
-    var recherche= document.getElementsByClassName("form-control me-2");
     $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
         url: "localhost:8080/AffichageLivresRecherchesTitre/"+recherche,
-        data: JSON.stringify(avis1),
         success: function(resultat) {
             alert(resultat);
-          console.log(avis1);
         }
     })};
 </script>
