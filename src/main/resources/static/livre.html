@@ -24,7 +24,7 @@
                             <span class="span">Auteur</span> : <span id="auteur-livre">Auteur</span><br>
                             <span class="span">Illustrateur</span> : <span id="illustrateur">Illustrateur</span><br>
                             <span class="span">Genre</span> : <span id="type">genre</span><br>
-                            <span class="span">Type</span> : <span id="type">BD/Manga/roman</span><br>
+                            <span class="span">Type</span> : <span id="type1">BD/Manga/roman</span><br>
                             <span class="span">Avancement</span> : <span id="avancement">avancement</span><br>
                             <span class="span">Editeur</span> : <span id="editeur">editeur</span><br>
                             <span class="span">Date de sortie</span> : <span id="date-de-sortie">15/05/2022</span><br>
@@ -41,7 +41,10 @@
                     </div>
                 </div>
                 <div id="resume">Le résumé du volume</div>
-                <div id="avis">Les avis des utilisateurs (à dérouler)</div>
+                <button id="donnerAvis"><a href="API/Avis">Donner/Modifier mon avis</a></button>
+            <button id="modificationAvis"><a href= "RAJOUTER ADRESSE">Modifier mon avis</a></button>
+
+                <div id="avis">Avis des utilisateurs (à dérouler)</div>
 
             </section>
         </div>
@@ -57,6 +60,21 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <script src="js/scriptEnCommun.js"></script>
+    <script src="js/scriptEnCommun.js"></script>
+
+    <!--<script>
+ LinkAvis=document.getElementById("avis");
+LinkAvis.addEventListener("mouseover", function(){
+    $.ajax({
+        type: "POST",
+        headers: { "Content-type": "application/JSON" },
+        url: "http://localhost:8080/API/tousLesAvis",
+        success: function(resultat) {
+            alert(resultat);
+        }
+    });
+    });
+</script>-->
 </body>
 
 </html>

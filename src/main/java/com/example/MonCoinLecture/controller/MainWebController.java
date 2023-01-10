@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping ("/API")
@@ -21,10 +22,55 @@ public class MainWebController {
     @Autowired
     private AvisRepositoryInterface avisRepositoryInterface;
 
-    @PostMapping("/ajouterAvis)")
+    @PostMapping("/Avis)")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
         avisRepositoryInterface.save(avis1);
         return "OK";
+    }
+    @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
+    public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
+        avisRepositoryInterface.deleteByUtilisateur(pseudo);
+        return "OK";
+    }
+    @GetMapping("/supprimerAvisParId/{Id}")
+    public String supprimerAvisParId(@PathVariable ("Id") int Id){
+        avisRepositoryInterface.deleteById(Id);
+        return "OK";
+    }
+    @GetMapping("/trierAvisParUtilisateur/{pseudo}")
+    public List<Avis> trierAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
+        List<Avis> listeAvis= avisRepositoryInterface.findByUtilisateur(pseudo);
+        return listeAvis;
+    }
+    @GetMapping("/trierAvisParLivre/{titreLivre}")
+    public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
+        return avisRepositoryInterface.findByLivre(titreLivre);
+    }
+    @GetMapping("/trierAvisParId/{Id}")
+    public Avis trierAvisParId(@PathVariable ("Id") int Id){
+        return avisRepositoryInterface.findById(Id);
+    }
+    @GetMapping("/tousLesAvis")
+    public List<Avis> tousLesAvis(){
+        return avisRepositoryInterface.findAll();
+    }
+    @GetMapping("/modifierAvis/{titreLivre}")
+    public String modifierAvis(@PathVariable("titreLivre") String titreLivre){
+        avisRepositoryInterface.findByLivre(titreLivre);
+        if (avisRepositoryInterface.findByLivre(titreLivre).isEmpty()== true && avisRepositoryInterface.findByLivre(titreLivre.toUpperCase()).isEmpty()== true){
+            return ("Vous n'avez posté aucun commentaire sur cet ouvrage.");
+        }
+        else {
+            return "N'oubliez pas d'enregistrer vos modifications.";
+        }
+
+    }
+
+    @GetMapping("/ajouterUnLivre")
+    public Livres ajout_livre(){
+        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "Bonjour");
+        livresRepositoryInterface.save(livres);
+        return livres;
     }
 
     @PostMapping("/ajoutUtilisateur")
