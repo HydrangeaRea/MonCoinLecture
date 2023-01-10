@@ -77,10 +77,6 @@ public class MainWebController {
         return avisRepositoryInterface.findByLivre(titreLivre);
     }
 
-    @GetMapping("/tousLesAvis")
-    public List<Avis> tousLesAvis(){
-        return avisRepositoryInterface.findAll();
-    }
     @GetMapping("/modifierAvis/{titreLivre}")
     public String modifierAvis(@PathVariable("titreLivre") String titreLivre){
         avisRepositoryInterface.findByLivre(titreLivre);
@@ -115,7 +111,7 @@ public class MainWebController {
         }
     }
 
-  /*  @PostMapping("/modificationCompteUtilisateur")
+   @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
         if (utilisateur.getAuteurFavori() != "") {
@@ -148,7 +144,7 @@ public class MainWebController {
     }
 
 
-*/
+
 
 
 
