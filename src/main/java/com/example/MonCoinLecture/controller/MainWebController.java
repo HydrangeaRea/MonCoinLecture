@@ -66,7 +66,7 @@ public class MainWebController {
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "Bonjour");
+        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "", "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -90,11 +90,15 @@ public class MainWebController {
     @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
-        if (utilisateursRepositoryInterface.findByAuteurFavori(utilisateur.getAuteurFavori()) != null) {
+        if (utilisateur.getAuteurFavori() != "") {
             utilAModifier.setAuteurFavori(utilisateur.getAuteurFavori());
-        } else utilAModifier.setAuteurFavori(utilAModifier.getAuteurFavori());
-        utilAModifier.setDescription(utilisateur.getDescription());
-        utilAModifier.setLivreFavori(utilisateur.getLivreFavori());
+        }
+        if (utilisateur.getLivreFavori() != "") {
+            utilAModifier.setLivreFavori(utilisateur.getLivreFavori());
+        }
+        if (utilisateur.getDescription() != "") {
+            utilAModifier.setDescription(utilisateur.getDescription());
+        }
         utilisateursRepositoryInterface.save(utilAModifier);
         return "ok";
     }
