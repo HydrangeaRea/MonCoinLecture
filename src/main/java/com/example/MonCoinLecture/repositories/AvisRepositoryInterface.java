@@ -10,6 +10,4 @@ public interface AvisRepositoryInterface extends JpaRepository<Avis, Integer> {
     List<Avis> findByUtilisateur (String Pseudo);
     List<Avis> findByLivre (String titreLivre);
     List<Avis> deleteByUtilisateur (String pseudo);
-
-    Avis findByTitre ();
 }
