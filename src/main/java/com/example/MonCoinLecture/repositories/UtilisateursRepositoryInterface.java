@@ -11,5 +11,7 @@ public interface UtilisateursRepositoryInterface extends JpaRepository<Utilisate
     Utilisateurs findByAdresseMail(String adresseMail);
     Utilisateurs findByPseudo(String pseudo);
     Utilisateurs findByMotDePasse(String motDePasse);
-
+    Utilisateurs findByAuteurFavori(String auteurFavori);
+    Utilisateurs findByLivreFavori(String livreFavori);
+    Utilisateurs findByDescription(String description);
 }
