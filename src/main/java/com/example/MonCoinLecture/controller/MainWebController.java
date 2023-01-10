@@ -44,6 +44,10 @@ public class MainWebController {
         return listeLivresRecherches;
     }
 
+    @GetMapping("/voirTousLesLivres")
+    public List<Livres> listeLivres(){
+        return livresRepositoryInterface.findAll();
+    }
     @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
     public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         avisRepositoryInterface.deleteByUtilisateur(pseudo);
