@@ -21,21 +21,24 @@
       <aside class="membre-placeholder"></aside>
       <section class="block_content">
         <h1>Inscription</h1>
-        Pseudo : <input type="text" id="pseudo" /> <br />
-        Adresse Mail : <input type="text" id="mail" /> <br />
-        Mot de Passe : <input type="password" id="mdp" /> <br />
+        <span id="messageInscription"></span> <br />
+        Pseudo : <br> <input type="text" id="pseudo" /> <br />
+        Adresse Mail : <br> <input type="text" id="mail" /> <br />
+        Mot de Passe : <br> <input type="password" id="mdp" /> <br />
         <button id="button">Valider l'inscription</button>
       </section>
 
       <section class="block_content">
         <h1>Connexion</h1>
-        Pseudo : <input type="text" id="pseudo2" /> <br />
-        Mot de Passe : <input type="password" id="mdp2" /> <br />
+        <span id="messageConnexion"></span> <br />
+        Pseudo : <br> <input type="text" id="pseudo2" /> <br />
+        Mot de Passe : <br> <input type="password" id="mdp2" /> <br />
         <button id="button2">Connexion</button>
       </section>
 
       <section class="block_content">
         <h1>Déconnexion</h1>
+        <span id="messageDeconnexion"></span> <br />
         <button id="button3">Déconnexion</button>
       </section>
     </div>
@@ -53,7 +56,10 @@
         url: "http://localhost:8080/API/ajoutUtilisateur",
         data: JSON.stringify(valeurs),
         success: function (resultat) {
-          alert(resultat);
+          $('#messageInscription').html(resultat);
+          $('#pseudo').val("");
+          $('#mail').val("");
+          $('#mdp').val("");
         }
       });
       console.log(JSON.stringify(valeurs));
@@ -79,9 +85,14 @@
           if (resultat == "ok") {
             sessionStorage.pseudo = $('#pseudo2').val();
             sessionStorage.motDePasse = $('#mdp2').val();
+            $('#messageConnexion').html("Vous êtes connecté à MonCoinLecture.");
+            $('#pseudo2').val("");
+            $('#mdp2').val("");
           }
           else {
-            alert("Vérifiez le pseudo ou le mot de passe.");
+            $('#messageConnexion').html("Vérifiez le pseudo ou le mot de passe.");
+            $('#pseudo2').val("");
+            $('#mdp2').val("");
           }
         }
       });
@@ -91,7 +102,10 @@
 
   <script>
    $('#button3').on("click", function () {
+    if (sessionStorage.pseudo != null) {
     sessionStorage.clear();
+    $('#messageDeconnexion').html("Vous avez été déconnecté avec succès.");
+    }
     });
  </script>
 
