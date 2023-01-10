@@ -18,6 +18,8 @@
         <aside class="membre-placeholder"></aside>
         <section class="block_content">
             <h1>Mes Informations</h1>
+            Auteur favori : <input type="text" id="auteurFav" /> <br/>
+            Livre favori : <input type="text" id="livreFav" /> <br/>
             Description : <input type="text" id="description" /> <br/>
             <button id="button">Valider les modifications</button>
         </section>
@@ -31,7 +33,7 @@
 
 <script>
 $('#button').on("click", function() {
-    let valeurs = {pseudo: sessionStorage.pseudo,description: $('#description').val()};
+    let valeurs = {pseudo: sessionStorage.pseudo, auteurFavori: $('#auteurFav').val(),livreFavori: $('#livreFav').val(),description: $('#description').val()};
     $.ajax({
     type: "POST",
     headers: {"Content-Type": "application/JSON"},
