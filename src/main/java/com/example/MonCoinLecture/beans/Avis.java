@@ -14,10 +14,10 @@ public class Avis {
 
     private int id_livre_suggestion;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Utilisateurs utilisateur = new Utilisateurs();
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Livres livre = new Livres();
     public Avis() {
     }

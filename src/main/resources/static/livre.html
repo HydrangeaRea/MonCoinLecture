@@ -41,8 +41,9 @@
                     </div>
                 </div>
                 <div id="resume">Le résumé du volume</div>
-                <button id="donnerAvis"><a href="API/Avis">Donner/Modifier mon avis</a></button>
-            <button id="modificationAvis"><a href= "RAJOUTER ADRESSE">Modifier mon avis</a></button>
+                <button id="donnerAvis"><a href="/donnerAvis.html"> Donner mon avis</a></button>
+
+                <button id="modificationAvis"><a href= "RAJOUTER ADRESSE">Modifier mon avis</a></button>
 
                 <div id="avis">Avis des utilisateurs (à dérouler)</div>
 
@@ -62,19 +63,6 @@
     <script src="js/scriptEnCommun.js"></script>
     <script src="js/scriptEnCommun.js"></script>
 
-    <!--<script>
- LinkAvis=document.getElementById("avis");
-LinkAvis.addEventListener("mouseover", function(){
-    $.ajax({
-        type: "POST",
-        headers: { "Content-type": "application/JSON" },
-        url: "http://localhost:8080/API/tousLesAvis",
-        success: function(resultat) {
-            alert(resultat);
-        }
-    });
-    });
-</script>-->
 </body>
 
 </html>

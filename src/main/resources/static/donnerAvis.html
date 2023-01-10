@@ -7,24 +7,23 @@
 </head>
 <body>
 <script src='http://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script src="test.js"></script>
 <br><br>
 
 
-// QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN COMMENTAIRE!<br><br>
+ QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN COMMENTAIRE!<br><br>
 <span>ID membre</span><input disabled="disabled" type="text" id="input_nom_membre" required
        minlength="2" maxlength="4" size="10"><br><br>
 
 
-// QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA PREREMPLI!<br><br>
+ QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA PREREMPLI!<br><br>
 
 <span>Nom du livre</span><input  disabled="disabled" type="text" id="input_nom_livre" required
        minlength="2" maxlength="4" size="10">
 <br><br>
 
-Evaluation: <select id="note" name="p2"><option value=null>Je ne sais pas.</option><option value=0>0</option><option value=1>1</option><option value=2">2</option><option value=3>3</option><option value=4">4</option><option value=5>5</option><br><br></select>
+Evaluation: <select id="note" name="evalutation"><option value=null>Je ne sais pas.</option><option value=0>0</option><option value=1>1</option><option value=2">2</option><option value=3>3</option><option value=4">4</option><option value=5>5</option><br><br></select>
 <br><br>
-Avancement de la lecture :<select id="avancement" name="p2"><option value="Lu">Lu</option><option value="En cours de lecture">En cours de lecture</option><option value="A lire">A lire</option><br><br></select>
+Avancement de la lecture :<select id="avancement" name="avancement"><option value="Lu">Lu</option><option value="En cours de lecture">En cours de lecture</option><option value="A lire">A lire</option><br><br></select>
 
 <br><br>
     <span>Entrer commentaire</span><input type="text" id="input_commentaire" required
@@ -36,6 +35,8 @@ Avancement de la lecture :<select id="avancement" name="p2"><option value="Lu">L
 
 <button id="bouton_ok" onclick="getValue()";> Valider </button><br><br>
 <div>Attention, pour déposer un avis sur LeCoinLecture, il faut être inscrit sur le site.</div>
+<script src="donnerAvis.js"></script>
+<script src="js/scriptEnCommun.js"></script>
 
 </body>
 </html>

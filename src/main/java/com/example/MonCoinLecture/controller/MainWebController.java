@@ -20,11 +20,43 @@ public class MainWebController {
     @Autowired
     private AvisRepositoryInterface avisRepositoryInterface;
 
-    @PostMapping("/Avis)")
+    @PostMapping("/Avis")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
-        avisRepositoryInterface.save(avis1);
-        return "OK";
+            avisRepositoryInterface.save(avis1);
+            return "Votre avis a bien été posté. Merci pour votre contribution.";
+        }
+
+        /*     @PostMapping("/modifierAvis")
+     public String modifierAvis(@RequestBody Avis avis1) {
+        List<Avis> listeAvisDuLivre = avisRepositoryInterface.findByLivre()
+         if (avisRepositoryInterface.findBy().getUtilisateur() == null) {
+             avisRepositoryInterface.save(avis1);
+             return "Votre avis a bien été posté. Merci pour votre contribution.";
+         }
+         else {
+             return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
+         }
+     }
+    */
+
+  @PostMapping("/AffichageLivresRecherchesTitre/{titre}")
+     public List<Livres> AffichageLivresRecherchesTitres(@PathVariable ("titre") String titre) {
+         List<Livres> listeLivresRecherches = livresRepositoryInterface.findByTitre(titre);
+             return listeLivresRecherches;
+         }
+
+    @PostMapping("/AffichageLivresRecherchesAuteur/{auteur}")
+    public List<Livres> AffichageLivresRecherchesAuteur(@PathVariable ("auteur") String auteur) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByAuteur(auteur);
+        return listeLivresRecherches;
     }
+
+    @PostMapping("/AffichageLivresRecherchesIllustrateur/{illustrateur}")
+    public List<Livres> AffichageLivresRecherchesIllustrateur(@PathVariable ("illustrateur") String illustrateur) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByIllustrateur(illustrateur);
+        return listeLivresRecherches;
+    }
+
     @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
     public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         avisRepositoryInterface.deleteByUtilisateur(pseudo);
@@ -44,14 +76,7 @@ public class MainWebController {
     public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
         return avisRepositoryInterface.findByLivre(titreLivre);
     }
-    @GetMapping("/trierAvisParId/{Id}")
-    public Avis trierAvisParId(@PathVariable ("Id") int Id){
-        return avisRepositoryInterface.findById(Id);
-    }
-    @GetMapping("/tousLesAvis")
-    public List<Avis> tousLesAvis(){
-        return avisRepositoryInterface.findAll();
-    }
+
     @GetMapping("/modifierAvis/{titreLivre}")
     public String modifierAvis(@PathVariable("titreLivre") String titreLivre){
         avisRepositoryInterface.findByLivre(titreLivre);
@@ -61,12 +86,11 @@ public class MainWebController {
         else {
             return "N'oubliez pas d'enregistrer vos modifications.";
         }
-
     }
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null,"", "Bonjour");
+        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, null,  "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -87,14 +111,18 @@ public class MainWebController {
         }
     }
 
-    @PostMapping("/modificationCompteUtilisateur")
+   @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
-        if (utilisateursRepositoryInterface.findByAuteurFavori(utilisateur.getAuteurFavori()) != null) {
+        if (utilisateur.getAuteurFavori() != "") {
             utilAModifier.setAuteurFavori(utilisateur.getAuteurFavori());
-        } else utilAModifier.setAuteurFavori(utilAModifier.getAuteurFavori());
-        utilAModifier.setDescription(utilisateur.getDescription());
-        utilAModifier.setLivreFavori(utilisateur.getLivreFavori());
+        }
+        if (utilisateur.getLivreFavori() != "") {
+            utilAModifier.setLivreFavori(utilisateur.getLivreFavori());
+        }
+        if (utilisateur.getDescription() != "") {
+            utilAModifier.setDescription(utilisateur.getDescription());
+        }
         utilisateursRepositoryInterface.save(utilAModifier);
         return "ok";
     }
@@ -116,10 +144,8 @@ public class MainWebController {
     }
 
 
-    @GetMapping("/voirTousLesLivres")
-    public List<Livres> listeLivres(){
-        return livresRepositoryInterface.findAll();
-    }
+
+
 
 
     @GetMapping ("/ajoutLivresEnBaseTest")
