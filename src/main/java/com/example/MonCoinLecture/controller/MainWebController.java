@@ -20,11 +20,23 @@ public class MainWebController {
     @Autowired
     private AvisRepositoryInterface avisRepositoryInterface;
 
-    @PostMapping("/Avis)")
+    @PostMapping("/Avis")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
-        avisRepositoryInterface.save(avis1);
-        return "OK";
-    }
+            avisRepositoryInterface.save(avis1);
+            return "Votre avis a bien été posté. Merci pour votre contribution.";
+        }
+
+
+ /*   @PostMapping("/Avis")
+    public String Ajouter_Avis_test(@RequestBody Avis avis1) {
+        if (avisRepositoryInterface.findByTitre(titre).getUtilisateur() == null) {
+            avisRepositoryInterface.save(avis1);
+            return "Votre avis a bien été posté. Merci pour votre contribution.";
+        }
+        else {
+            return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
+        }
+    }*/
     @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
     public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         avisRepositoryInterface.deleteByUtilisateur(pseudo);
@@ -44,10 +56,7 @@ public class MainWebController {
     public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
         return avisRepositoryInterface.findByLivre(titreLivre);
     }
-    @GetMapping("/trierAvisParId/{Id}")
-    public Avis trierAvisParId(@PathVariable ("Id") int Id){
-        return avisRepositoryInterface.findById(Id);
-    }
+
     @GetMapping("/tousLesAvis")
     public List<Avis> tousLesAvis(){
         return avisRepositoryInterface.findAll();
@@ -61,12 +70,11 @@ public class MainWebController {
         else {
             return "N'oubliez pas d'enregistrer vos modifications.";
         }
-
     }
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "", "Bonjour");
+        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
