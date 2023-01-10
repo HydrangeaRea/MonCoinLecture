@@ -35,14 +35,56 @@
                     Search by
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="titre" class="dropdown-item" href="#">Titre</a></li>
-                        <li><a id="auteur"class="dropdown-item" href="#">Auteur</a></li>
-                        <li><a id="illustrateur"class="dropdown-item" href="#">Illustrateur</a></li>
+                        <li><a id="titre" class="dropdown-item" onclick="rechercherTitre()";>Titre</a></li>
+                        <li><a id="auteur"class="dropdown-item" onclick="rechercherAuteur()";>Auteur</a></li>
+                        <li><a id="illustrateur" class="dropdown-item" onclick="rechercherIllustrateur()";>Illustrateur</a></li>
                     </ul>
                 </form>
             </div>
         </div>
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script src="test.js"></script>
+
+<script>
+function rechercherIllustrateur(){
+alert("Bonjour");
+    var recherche= document.getElementsByClassName("form-control me-2");
+    $.ajax({
+        type: "POST",
+        headers: { "Content-type": "application/JSON" },
+        url: "localhost:8080/AffichageLivresRecherchesIllustrateur/"+recherche,
+        data: JSON.stringify(avis1),
+        success: function(resultat) {
+            alert(resultat);
+          console.log(avis1);
+        }
+    })};
+
+    function rechercherAuteur(){
+alert("Bonjour");
+    var recherche= document.getElementsByClassName("form-control me-2");
+    $.ajax({
+        type: "POST",
+        headers: { "Content-type": "application/JSON" },
+        url: "localhost:8080/AffichageLivresRecherchesAuteur/"+recherche,
+        data: JSON.stringify(avis1),
+        success: function(resultat) {
+            alert(resultat);
+          console.log(avis1);
+        }
+    })};
+
+    function rechercherTitre(){
+alert("Bonjour");
+    var recherche= document.getElementsByClassName("form-control me-2");
+    $.ajax({
+        type: "POST",
+        headers: { "Content-type": "application/JSON" },
+        url: "localhost:8080/AffichageLivresRecherchesTitre/"+recherche,
+        data: JSON.stringify(avis1),
+        success: function(resultat) {
+            alert(resultat);
+          console.log(avis1);
+        }
+    })};
+</script>
+

@@ -26,17 +26,37 @@ public class MainWebController {
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }
 
+        /*     @PostMapping("/modifierAvis")
+     public String modifierAvis(@RequestBody Avis avis1) {
+        List<Avis> listeAvisDuLivre = avisRepositoryInterface.findByLivre()
+         if (avisRepositoryInterface.findBy().getUtilisateur() == null) {
+             avisRepositoryInterface.save(avis1);
+             return "Votre avis a bien été posté. Merci pour votre contribution.";
+         }
+         else {
+             return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
+         }
+     }
+    */
 
- /*   @PostMapping("/Avis")
-    public String Ajouter_Avis_test(@RequestBody Avis avis1) {
-        if (avisRepositoryInterface.findByTitre(titre).getUtilisateur() == null) {
-            avisRepositoryInterface.save(avis1);
-            return "Votre avis a bien été posté. Merci pour votre contribution.";
-        }
-        else {
-            return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
-        }
-    }*/
+  @PostMapping("/AffichageLivresRecherchesTitre/{titre}")
+     public List<Livres> AffichageLivresRecherchesTitres(@PathVariable ("titre") String titre) {
+         List<Livres> listeLivresRecherches = livresRepositoryInterface.findByTitre(titre);
+             return listeLivresRecherches;
+         }
+
+    @PostMapping("/AffichageLivresRecherchesAuteur/{auteur}")
+    public List<Livres> AffichageLivresRecherchesAuteur(@PathVariable ("auteur") String auteur) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByAuteur(auteur);
+        return listeLivresRecherches;
+    }
+
+    @PostMapping("/AffichageLivresRecherchesIllustrateur/{illustrateur}")
+    public List<Livres> AffichageLivresRecherchesIllustrateur(@PathVariable ("illustrateur") String illustrateur) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByIllustrateur(illustrateur);
+        return listeLivresRecherches;
+    }
+
     @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
     public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         avisRepositoryInterface.deleteByUtilisateur(pseudo);
@@ -74,7 +94,7 @@ public class MainWebController {
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, "Bonjour");
+        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, null,  "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -95,7 +115,7 @@ public class MainWebController {
         }
     }
 
-    @PostMapping("/modificationCompteUtilisateur")
+  /*  @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
         if (utilisateur.getAuteurFavori() != "") {
@@ -128,6 +148,7 @@ public class MainWebController {
     }
 
 
+*/
 
 
 
