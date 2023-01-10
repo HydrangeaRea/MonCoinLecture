@@ -11,7 +11,7 @@ console.log(input_commentaire);
 console.log(input_suggestion_livre);
 console.log(input_nom_membre);
 console.log(input_nom_livre);
-if(input_nom_membre == ""){
+if(input_nom_membre != ""){
     alert("Vous devez être inscrit sur LeCoinLecture pour déposer un commentaire.")
 }
 else{

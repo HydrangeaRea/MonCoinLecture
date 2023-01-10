@@ -57,7 +57,7 @@ public class MainWebController {
     @GetMapping("/modifierAvis/{titreLivre}")
     public String modifierAvis(@PathVariable("titreLivre") String titreLivre){
         avisRepositoryInterface.findByLivre(titreLivre);
-        if (avisRepositoryInterface.findByLivre(titreLivre).isEmpty()== true){
+        if (avisRepositoryInterface.findByLivre(titreLivre).isEmpty()== true && avisRepositoryInterface.findByLivre(titreLivre.toUpperCase()).isEmpty()== true){
             return ("Vous n'avez posté aucun commentaire sur cet ouvrage.");
         }
         else {
