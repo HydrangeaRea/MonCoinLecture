@@ -66,7 +66,7 @@ public class MainWebController {
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "Bonjour");
+        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null,"", "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -116,7 +116,10 @@ public class MainWebController {
     }
 
 
-
+    @GetMapping("/voirTousLesLivres")
+    public List<Livres> listeLivres(){
+        return livresRepositoryInterface.findAll();
+    }
 
 
     @GetMapping ("/ajoutLivresEnBaseTest")
