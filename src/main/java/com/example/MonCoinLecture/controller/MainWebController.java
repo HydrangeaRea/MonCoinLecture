@@ -26,19 +26,6 @@ public class MainWebController {
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }
 
-        /*     @PostMapping("/modifierAvis")
-     public String modifierAvis(@RequestBody Avis avis1) {
-        List<Avis> listeAvisDuLivre = avisRepositoryInterface.findByLivre()
-         if (avisRepositoryInterface.findBy().getUtilisateur() == null) {
-             avisRepositoryInterface.save(avis1);
-             return "Votre avis a bien été posté. Merci pour votre contribution.";
-         }
-         else {
-             return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
-         }
-     }
-    */
-
   @PostMapping("/AffichageLivresRecherchesTitre/{titre}")
      public List<Livres> AffichageLivresRecherchesTitres(@PathVariable ("titre") String titre) {
          List<Livres> listeLivresRecherches = livresRepositoryInterface.findByTitre(titre);
