@@ -103,6 +103,24 @@ width: 100%;
     width: 50px;
 }
 
-.commentaire{
-
-}
+button{
+    font-size:15px;
+    font-family:Arial;
+    width:auto;
+    height:auto;
+    border-width:1px;
+    color:#ffffff;
+    border-color:#ee1eb5;
+    font-weight:bold;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    box-shadow:inset 0px 1px 0px 0px #fbafe3;
+    text-shadow:inset 0px 1px 0px #c70067;
+    background:linear-gradient(#ff5bb0, rgba(167, 1, 87, 1));
+  }
+  
+  button:hover {
+    background: linear-gradient(rgba(167, 1, 87, 1), #ff5bb0);
+  }
