@@ -20,11 +20,23 @@ public class MainWebController {
     @Autowired
     private AvisRepositoryInterface avisRepositoryInterface;
 
-    @PostMapping("/Avis)")
+    @PostMapping("/Avis")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
-        avisRepositoryInterface.save(avis1);
-        return "OK";
-    }
+            avisRepositoryInterface.save(avis1);
+            return "Votre avis a bien été posté. Merci pour votre contribution.";
+        }
+
+
+ /*   @PostMapping("/Avis")
+    public String Ajouter_Avis_test(@RequestBody Avis avis1) {
+        if (avisRepositoryInterface.findByTitre(titre).getUtilisateur() == null) {
+            avisRepositoryInterface.save(avis1);
+            return "Votre avis a bien été posté. Merci pour votre contribution.";
+        }
+        else {
+            return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
+        }
+    }*/
     @GetMapping("/supprimerAvisParUtilisateur/{pseudo}")
     public String supprimerAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         avisRepositoryInterface.deleteByUtilisateur(pseudo);
@@ -44,10 +56,7 @@ public class MainWebController {
     public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
         return avisRepositoryInterface.findByLivre(titreLivre);
     }
-    @GetMapping("/trierAvisParId/{Id}")
-    public Avis trierAvisParId(@PathVariable ("Id") int Id){
-        return avisRepositoryInterface.findById(Id);
-    }
+
     @GetMapping("/tousLesAvis")
     public List<Avis> tousLesAvis(){
         return avisRepositoryInterface.findAll();
@@ -61,12 +70,11 @@ public class MainWebController {
         else {
             return "N'oubliez pas d'enregistrer vos modifications.";
         }
-
     }
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("furtifs", null, null, "lu", "Damasio", "Aucun", "La volte", "SF", "Roman", null, "Bonjour");
+        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -87,7 +95,7 @@ public class MainWebController {
         }
     }
 
-    @PostMapping("/modificationCompteUtilisateur")
+  /*  @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
         if (utilisateursRepositoryInterface.findByAuteurFavori(utilisateur.getAuteurFavori()) != null) {
@@ -116,22 +124,9 @@ public class MainWebController {
     }
 
 
+*/
 
 
-
-    @GetMapping ("/ajoutLivresEnBaseTest")
-    public String ajoutLivresEnBaseTest () {
-        Livres livre1 = new Livres("Harry Potter à l'école des sorciers", "Harry Potter", "1/7", "Terminée",
-                "J. K. Rowling", "NULL", "Gallimard", "Fantasy", "Roman",
-                new Date("16/11/1998"), "src=img / harry_potter_tome_1.jpg", "Le jour de ses onze ans, " +
-                "Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. " +
-                "Un géant vient le chercher pour l'emmener à Poudlard, la célèbre école de sorcellerie où une place l'attend " +
-                "depuis toujours. Voler sur des balais, jeter des sorts, combattre les Trolls : Harry Potter se révèle un sorcier " +
-                "vraiment doué. Mais quel mystère entoure donc sa naissance et qui est l'effroyable V..., " +
-                "le mage dont personne n'ose prononcer le nom ?");
-        livresRepositoryInterface.save(livre1);
-        return "OK";
-    }
 
     @GetMapping ("/bonjour")
     public String bonjour () {
