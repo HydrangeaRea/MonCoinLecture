@@ -8,6 +8,6 @@ import java.util.List;
 public interface AvisRepositoryInterface extends JpaRepository<Avis, Integer> {
     Avis findById (int Id);
     List<Avis> findByUtilisateur (String Pseudo);
-    List<Avis> findByLivre (String Livre);
+    List<Avis> findByLivre (String titreLivre);
     List<Avis> deleteByUtilisateur (String pseudo);
 }
