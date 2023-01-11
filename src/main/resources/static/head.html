@@ -1,3 +1,4 @@
+<script src='http://code.jquery.com/jquery-3.6.0.min.js'></script>
 <nav class="navbar navbar-expand-lg navbar navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Mon coin Lecture</a>
@@ -30,7 +31,7 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input  class="form-control me-2" type="text" placeholder="Que cherches_tu?" aria-label="Search">&emsp;
+                    <input id="texte" class="form-control me-2" type="text" placeholder="Que cherches_tu?" aria-label="Search">&emsp;
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Search by
                     </a>
@@ -43,14 +44,10 @@
             </div>
         </div>
     </nav>
-
 <script>
-var r= document.getElementsByClassName("form-control me-2").value;
-var recherche = JSON.stringify(r);
+var recherche=document.getElementById("texte").value;
 
 function rechercherIllustrateur(){
-console.log("recherche = "+ recherche);
-console.log("r = "+r);
 alert("Bonjour");
     $.ajax({
         type: "POST",
@@ -81,5 +78,5 @@ alert("Bonjour");
             alert(resultat);
         }
     })};
-</script>
 
+</script>

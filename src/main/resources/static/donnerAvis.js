@@ -1,4 +1,5 @@
 function getValue() {
+alert("Bonjour");
     var input_nom_membre = document.getElementById("input_nom_membre").value;
     var input_nom_livre = document.getElementById("input_nom_livre").value;
     var a=document.getElementById("avancement");
@@ -8,7 +9,9 @@ function getValue() {
     var input_commentaire= document.getElementById("input_commentaire").value;
     var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
 
-if(input_nom_membre != ""){
+
+
+if(input_nom_membre == ""){
     alert("Vous devez être inscrit sur LeCoinLecture pour déposer un commentaire.")
 }
 else{
@@ -27,4 +30,4 @@ let avis1= {avancement: input_avancement, commentaire: input_commentaire, id_liv
         }
     })
     }
-};
+}};
