@@ -10,6 +10,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
                     </li>
+                    <li class="nav-item" id="inscriptionConnexion">
+                        <a class="nav-link" href="inscriptionUtilisateur.html">Inscription/connexion</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="liste.html">Ma liste</a>
                     </li>
@@ -37,19 +40,24 @@
                     <option value="Auteur">Auteur</option>
                     <option value="Illustrateur">Illustrateur</option><br><br>
                 </select>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">D&eacuteconnexion</a>
-
-                </li>
-
                 <button id="bouton_ok" onclick="valider()" ;> Valider </button><br><br>
                 </ul>
             </form>
+                <button id="deconnexion" >Deconnexion</button>
         </div>
     </div>
 </nav>
 
 <script>
+    if (sessionStorage.pseudo == null) {
+        $('#deconnexion').hide();
+        $('#inscriptionConnexion').show();
+    } else {
+        $('#deconnexion').show();
+        $('#inscriptionConnexion').hide();
+    }
+
+
     var input = document.getElementById("texte");
     var input_bis = document.getElementById("texte").value;
 
@@ -63,5 +71,16 @@ alert("Bonjour");
             alert(resultat);
         }
     })};
+
+$('#deconnexion').on("click", function () {
+    if (sessionStorage.pseudo != null) {
+    sessionStorage.clear();
+    alert("Vous avez été déconnecté avec succès.");
+    $('#deconnexion').hide();
+    $('#inscriptionConnexion').show();
+    document.location.reload();
+    }
+    });
+
 
 </script>
