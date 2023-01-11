@@ -26,10 +26,19 @@ public class MainWebController {
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }
 
-
     @PostMapping("/AffichageLivresRecherchesIllustrateur/{illustrateur}")
     public List<Livres> AffichageLivresRecherchesIllustrateur(@PathVariable ("illustrateur") String illustrateur) {
         List<Livres> listeLivresRecherches = livresRepositoryInterface.findByIllustrateur(illustrateur);
+        return listeLivresRecherches;
+    }
+    @PostMapping("/AffichageLivresRecherchesTitre/{titre}")
+    public List<Livres> AffichageLivresRecherchesTitre(@PathVariable ("titre") String titre) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByTitre(titre);
+        return listeLivresRecherches;
+    }
+    @PostMapping("/AffichageLivresRecherchesAuteur/{auteur}")
+    public List<Livres> AffichageLivresRecherchesAuteur(@PathVariable ("auteur") String auteur) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByAuteur(auteur);
         return listeLivresRecherches;
     }
 

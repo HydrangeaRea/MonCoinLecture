@@ -11,11 +11,6 @@ public class MonCoinLectureApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(MonCoinLectureApplication.class, args);
-		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
-		try{
-			Date date = DateFor.parse("08/07/2019");
-			System.out.println("Date : "+date);
-		}catch (ParseException e) {e.printStackTrace();}
 	}
 	}
 
