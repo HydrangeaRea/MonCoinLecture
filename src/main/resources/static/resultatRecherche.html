@@ -56,7 +56,7 @@
           $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/AffichageLivresRecherchesTitre/"+recherche,
+        url: "localhost:8080/API/AffichageLivresRecherchesTitre/"+recherche,
         success: function(resultat) {
             alert(resultat);
         }
@@ -66,7 +66,7 @@
         $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/AffichageLivresRecherchesAuteur/"+recherche,
+        url: "localhost:8080/API/AffichageLivresRecherchesAuteur/"+recherche,
         success: function(resultat) {
             alert(resultat);
         }
@@ -76,7 +76,7 @@
         $.ajax({
         type: "POST",
         headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/AffichageLivresRecherchesIllustrateur/"+recherche,
+        url: "localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+recherche,
         success: function(resultat) {
             alert(resultat);
         }

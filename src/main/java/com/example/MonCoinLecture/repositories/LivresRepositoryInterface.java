@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface LivresRepositoryInterface extends JpaRepository<Livres, Integer> {
 
+    List<Livres> findByTitre (String titre);
+    List<Livres> findByAuteur (String auteur);
+    List<Livres> findByIllustrateur (String illustrateur);
 }
