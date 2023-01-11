@@ -3,6 +3,7 @@ package com.example.MonCoinLecture.beans;
 import jakarta.persistence.*;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -18,7 +19,7 @@ public class Utilisateurs {
     private String auteurFavori = "";
     private String livreFavori = "";
     private String description = "";
-    private Date dateInscription;
+    private LocalDate dateInscription;
 
     public Utilisateurs() {
     }
@@ -29,7 +30,7 @@ public class Utilisateurs {
         this.adresseMail = adresseMail;
     }
 
-    public Utilisateurs(String pseudo, String motDePasse, String adresseMail, String photo, String auteurFavori, String description, Date dateInscription) {
+    public Utilisateurs(String pseudo, String motDePasse, String adresseMail, String photo, String auteurFavori, String description, LocalDate dateInscription) {
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
         this.adresseMail = adresseMail;
@@ -86,7 +87,7 @@ public class Utilisateurs {
         return description;
     }
 
-    public Date getDateInscription() {
+    public LocalDate getDateInscription() {
         return dateInscription;
     }
 
@@ -122,7 +123,7 @@ public class Utilisateurs {
         this.description = description;
     }
 
-    public void setDateInscription(Date dateInscription) {
+    public void setDateInscription(LocalDate dateInscription) {
         this.dateInscription = dateInscription;
     }
 }

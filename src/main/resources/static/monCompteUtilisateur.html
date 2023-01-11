@@ -18,9 +18,17 @@
         <aside class="membre-placeholder"></aside>
         <section class="block_content">
             <h1>Mes Informations</h1>
-            Auteur favori : <input type="text" id="auteurFav" /> <br/>
-            Livre favori : <input type="text" id="livreFav" /> <br/>
-            Description : <input type="text" id="description" /> <br/>
+            <span id="message"></span> <br/>
+            Pseudo : <span id="monPseudo"></span> <br/>
+            Adresse Mail : <span id="monMail"></span> <br/>
+            Mot de Passe : <span id="monMDP"></span> <br/>
+            Date d'inscription : <span id="maDateInscription"></span> <br/>
+            Auteur favori : <span id="monAuteurFavori"></span> <br/>
+                >> Modifier mon auteur favori <input type="text" id="auteurFav" placeholder="auteur favori"/> <br/>
+            Livre favori : <span id="monLivreFavori"></span> <br/>
+                >> Modifier mon livre favori <input type="text" id="livreFav" placeholder="livre favori"/> <br/>
+            Description : <span id="maDescription"></span> <br/>
+                >> Modifier ma description <input type="text" id="description" placeholder="description"/> <br/>
             <button id="button">Valider les modifications</button>
         </section>
 
@@ -32,6 +40,23 @@
 
 
 <script>
+let data = {pseudo: sessionStorage.pseudo};
+$.ajax({
+    type: "POST",
+    headers: {"Content-Type": "application/JSON"},
+    url: "http://localhost:8080/API/mesInformations",
+    data: JSON.stringify(data),
+    success: function(resultat) {
+      $('#monPseudo').html(resultat.pseudo);
+      $('#monMail').html(resultat.adresseMail);
+      $('#monMDP').html(resultat.motDePasse);
+      $('#maDateInscription').html(resultat.dateInscription);
+      $('#monAuteurFavori').html(resultat.auteurFavori);
+      $('#monLivreFavori').html(resultat.livreFavori);
+      $('#maDescription').html(resultat.description);
+    }
+    });
+
 $('#button').on("click", function() {
     let valeurs = {pseudo: sessionStorage.pseudo, auteurFavori: $('#auteurFav').val(),livreFavori: $('#livreFav').val(),description: $('#description').val()};
     $.ajax({
@@ -40,13 +65,15 @@ $('#button').on("click", function() {
     url: "http://localhost:8080/API/modificationCompteUtilisateur",
     data: JSON.stringify(valeurs),
     success: function(resultat) {
-      alert(resultat);
+      $('#message').html("Vos informations ont été modifiées avec succès");
+      $('#auteurFav').val("");
+      $('#livreFav').val("");
+      $('#description').val("");
     }
     });
     console.log(JSON.stringify(valeurs));
   });
 
 </script>
-
 </body>
 </html>
