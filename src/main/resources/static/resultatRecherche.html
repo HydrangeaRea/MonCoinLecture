@@ -47,43 +47,6 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <script src="js/scriptEnCommun.js"></script>
-    <script src="js/liste.js"></script>
+<script src="js/liste.js"></script>
 </body>
-<script type="text/javascript">
-  $(document).ready(function() {
-    if (window.location.href.indexOf("Titre") > -1) {
-      alert("your url contains the word titre");
-          $.ajax({
-        type: "POST",
-        headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/API/AffichageLivresRecherchesTitre/"+recherche,
-        success: function(resultat) {
-            alert(resultat);
-        }
-    })
-    }
-    else if (window.location.href.indexOf("Auteur") > -1) {
-        $.ajax({
-        type: "POST",
-        headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/API/AffichageLivresRecherchesAuteur/"+recherche,
-        success: function(resultat) {
-            alert(resultat);
-        }
-    })
-    }
-    else  if (window.location.href.indexOf("Illustrateur") > -1) {
-        $.ajax({
-        type: "POST",
-        headers: { "Content-type": "application/JSON" },
-        url: "localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+recherche,
-        success: function(resultat) {
-            alert(resultat);
-        }
-    })}
-        else {
-        alert("your url does not contain the words titre, illustrateur or auteur!");
-    }
-})
-</script>
 </html>

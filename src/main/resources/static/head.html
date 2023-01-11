@@ -17,22 +17,22 @@
                         <a class="nav-link" href="monCompteUtilisateur.html">Mon compte</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Genre
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Type
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="resultatRecherche.html">Roman</a></li>
-                            <li><a class="dropdown-item" href="resultatRecherche.html">BD</a></li>
-                        <li><a class="dropdown-item" href="resultatRecherche.html">Mangas</a></li>
-                    </ul>
-                </li>
+                            <li><a name="Type" class="dropdown-item" href="resultatRecherche.html?Type=Roman">Roman</a></li>
+                            <li><a name="Type" class="dropdown-item" href="resultatRecherche.html?Type=BD">BD</a></li>
+                            <li><a name="Type" class="dropdown-item" href="resultatRecherche.html?Type=Manga">Mangas</a></li>
+                </ul>
+                    </li>
                 <li class="nav-item">
                 </li>
             </ul>
-            <form action="resultatRecherche.html=" , method="get" class="d-flex" role="search">
-                <input id="texte" class="form-control me-2" type="text" placeholder="Que cherches_tu?"
-                    aria-label="Search">&emsp;
-                <div id="texte_recherche">Rechercher par :</div>&emsp;<select id="recherche">
+            <form action="resultatRecherche.html" method="get" class="d-flex">
+                <input id="texte" name="recherche" class="form-control me-2" type="text" placeholder="Que cherches_tu?">
+                <div id="texte_recherche">Rechercher par :</div>
+                <select name="critere" id="recherche">
                     <option value="Titre">Titre</option>
                     <option value="Auteur">Auteur</option>
                     <option value="Illustrateur">Illustrateur</option><br><br>
@@ -42,25 +42,9 @@
 
                 </li>
 
-                <button id="bouton_ok" onclick="valider()" ;> Valider </button><br><br>
+                <button id="bouton_ok"> Valider </button><br><br>
                 </ul>
             </form>
         </div>
     </div>
 </nav>
-
-<script>
-    var input = document.getElementById("texte");
-    var input_bis = document.getElementById("texte").value;
-
-    function valider() {
-        alert("input=" + input);
-        alert("input_bis=" + input_bis);
-        alert(texte.value);
-        var val = document.URL;
-        var start;
-        start = val.search(/a=texte.value/);
-        var end;
-        end = val.search(/&/);
-    }
-</script>

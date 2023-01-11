@@ -42,6 +42,12 @@ public class MainWebController {
         return listeLivresRecherches;
     }
 
+    @PostMapping("/AffichageLivresRecherchesType/{type}")
+    public List<Livres> AffichageLivresRecherchesType(@PathVariable ("type") String type) {
+        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByType(type);
+        return listeLivresRecherches;
+    }
+
     @GetMapping("/voirTousLesLivres")
     public List<Livres> listeLivres(){
         return livresRepositoryInterface.findAll();
