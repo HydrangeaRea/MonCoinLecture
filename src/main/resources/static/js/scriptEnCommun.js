@@ -22,6 +22,7 @@ $.ajax({
               console.log(resultat.pseudo);
               $('.pseudo-membre').html(resultat.pseudo);
               $('.date-inscription').html("Inscrit depuis le : <br>"+resultat.dateInscription);
+              $('.descript').html("Ma description : <br>"+resultat.description);
               $('.auteur-fav').html("Auteur favori : <br>"+resultat.auteurFavori);
               $('.livre-fav').html("Livre favori : <br>"+resultat.livreFavori);
             }

@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="liste.html">Ma liste</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="monCompte">
                         <a class="nav-link" href="monCompteUtilisateur.html">Mon compte</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -52,9 +52,11 @@
     if (sessionStorage.pseudo == null) {
         $('#deconnexion').hide();
         $('#inscriptionConnexion').show();
+        $('#monCompte').hide();
     } else {
         $('#deconnexion').show();
         $('#inscriptionConnexion').hide();
+        $('#monCompte').show();
     }
 
 
@@ -78,6 +80,7 @@ $('#deconnexion').on("click", function () {
     alert("Vous avez été déconnecté avec succès.");
     $('#deconnexion').hide();
     $('#inscriptionConnexion').show();
+    $('#monCompte').hide();
     document.location.reload();
     }
     });

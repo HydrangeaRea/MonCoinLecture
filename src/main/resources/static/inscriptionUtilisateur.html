@@ -72,11 +72,11 @@
           if (resultat == "ok") {
             sessionStorage.pseudo = $('#pseudo2').val();
             sessionStorage.motDePasse = $('#mdp2').val();
-            $('#messageConnexion').html("Vous êtes connecté à MonCoinLecture.");
             $('#pseudo2').val("");
             $('#mdp2').val("");
             $('#deconnexion').show();
             $('#inscriptionConnexion').hide();
+            $('#monCompte').show();
             document.location.reload();
           }
           else {
