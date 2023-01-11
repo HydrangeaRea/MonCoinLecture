@@ -87,6 +87,98 @@ a{
     font-weight: bolder;
 }
 
+div{
+    
+}
+body{
+    background-image: url("bg_pink.webp");
+    background-size: cover;
+}
+
+#test{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.navbar-custom {
+    background-color: pink;
+    font-weight: bold;
+}
+
+.dropdown-item{
+    text-align: center;
+}
+
+.block-membre{
+    block-size: 30%;
+    border-radius: 15px;
+    background-color: pink;
+    width: 20%;
+    padding: 1em;
+    text-align: center;
+}
+
+
+.block_content{
+    block-size: 70%;
+    align-items: flex-end;
+    border-radius: 15px;
+    background-color: pink;
+    width: 60%;
+    padding: 1em;
+}
+ 
+.container{
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: space-around;
+    
+}
+
+.photo-profil{
+    width: 200px;
+    height: auto;
+}
+
+.pseudo-membre{
+    font-size: large;
+}
+
+a{
+    color: blueviolet;
+}
+
+.container-vert{
+    align-items: center;
+    vertical-align: middle;
+}
+
+#container-info-livre{
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: space-around;
+}
+
+#colone-droite-livre{
+    block-size: 50%;
+}
+
+#colone-gauche-livre{
+    block-size: 50%;
+}
+
+#couverture{
+    width: 200px;
+    height: auto;
+}
+
+.span{
+    font-weight: bolder;
+}
+
 .ligne-de-livre{
 justify-content: center;
 
@@ -123,4 +215,29 @@ button{
   
   button:hover {
     background: linear-gradient(rgba(167, 1, 87, 1), #ff5bb0);
+  }
+
+  #bouton_ok{
+    width: 70px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #saisie{
+    width: 220px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #recherche{
+    width: 120px;
+    height: 40px;
+    vertical-align: middle;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  #texte_recherche{
+    vertical-align: middle;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }

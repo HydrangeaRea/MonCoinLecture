@@ -1,52 +1,67 @@
+<script src='http://code.jquery.com/jquery-3.6.0.min.js'></script>
 <nav class="navbar navbar-expand-lg navbar navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mon coin Lecture</a>
+            <a class="navbar-brand" href="index.html">Mon coin Lecture</a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="test" class="navbar-collapse collapse" id="navbarSupportedContent" style="">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ma liste</a>
+                        <a class="nav-link" href="liste.html">Ma liste</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mon compte</a>
+                        <a class="nav-link" href="monCompteUtilisateur.html">Mon compte</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Genre
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Roman</a></li>
-                            <li><a class="dropdown-item" href="#">BD</a></li>
-
-                            <li><a class="dropdown-item" href="#">Mangas</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Que cherches_tu?" aria-label="Search">&emsp;
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Search by
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a id="titre" class="dropdown-item" href="#">Titre</a></li>
-                        <li><a id="auteur"class="dropdown-item" href="#">Auteur</a></li>
-                        <li><a id="illustrateur"class="dropdown-item" href="#">Illustrateur</a></li>
+                            <li><a class="dropdown-item" href="resultatRecherche.html">Roman</a></li>
+                            <li><a class="dropdown-item" href="resultatRecherche.html">BD</a></li>
+                        <li><a class="dropdown-item" href="resultatRecherche.html">Mangas</a></li>
                     </ul>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">D&eacuteconnexion</a>
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+            <form action="resultatRecherche.html=" , method="get" class="d-flex" role="search">
+                <input id="texte" class="form-control me-2" type="text" placeholder="Que cherches_tu?"
+                    aria-label="Search">&emsp;
+                <div id="texte_recherche">Rechercher par :</div>&emsp;<select id="recherche">
+                    <option value="Titre">Titre</option>
+                    <option value="Auteur">Auteur</option>
+                    <option value="Illustrateur">Illustrateur</option><br><br>
+                </select>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">D&eacuteconnexion</a>
 
-                    </li>
-                </form>
-            </div>
+                </li>
+
+                <button id="bouton_ok" onclick="valider()" ;> Valider </button><br><br>
+                </ul>
+            </form>
         </div>
-    </nav>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script src="test.js"></script>
+    </div>
+</nav>
+
+<script>
+    var input = document.getElementById("texte");
+    var input_bis = document.getElementById("texte").value;
+
+    function rechercherTitre(){
+alert("Bonjour");
+    $.ajax({
+        type: "POST",
+        headers: { "Content-type": "application/JSON" },
+        url: "localhost:8080/AffichageLivresRecherchesTitre/"+recherche,
+        success: function(resultat) {
+            alert(resultat);
+        }
+    })};
+
+</script>
