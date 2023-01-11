@@ -42,6 +42,12 @@ public class MainWebController {
         return listeLivresRecherches;
     }
 
+    @GetMapping("/voirTousLesAvis/{pseudo}")
+    public List<Avis> listeAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
+        Utilisateurs user = utilisateursRepositoryInterface.findByPseudo(pseudo);
+        return avisRepositoryInterface.findByUtilisateur(user);
+    }
+
     @GetMapping("/voirTousLesLivres")
     public List<Livres> listeLivres(){
         return livresRepositoryInterface.findAll();
@@ -56,11 +62,11 @@ public class MainWebController {
         avisRepositoryInterface.deleteById(Id);
         return "OK";
     }
-    @GetMapping("/trierAvisParUtilisateur/{pseudo}")
+    /*@GetMapping("/trierAvisParUtilisateur/{pseudo}")
     public List<Avis> trierAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         List<Avis> listeAvis= avisRepositoryInterface.findByUtilisateur(pseudo);
         return listeAvis;
-    }
+    }*/
     @GetMapping("/trierAvisParLivre/{titreLivre}")
     public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
         return avisRepositoryInterface.findByLivre(titreLivre);
