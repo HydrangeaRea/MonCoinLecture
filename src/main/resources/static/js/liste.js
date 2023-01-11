@@ -26,7 +26,7 @@ $.get("http://localhost:8080/API/voirTousLesLivres", function (retour) {
         $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
         $("#genre"+i).html(retour[(i-1)].genre);
         $("#type"+i).html(retour[(i-1)].type);
-        $("#info"+i).html(retour[(i-1)].info); //Mettre lien info
+        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
 
     };
         
