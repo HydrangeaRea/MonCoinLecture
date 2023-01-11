@@ -26,30 +26,6 @@ public class MainWebController {
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }
 
-        /*     @PostMapping("/modifierAvis")
-     public String modifierAvis(@RequestBody Avis avis1) {
-        List<Avis> listeAvisDuLivre = avisRepositoryInterface.findByLivre()
-         if (avisRepositoryInterface.findBy().getUtilisateur() == null) {
-             avisRepositoryInterface.save(avis1);
-             return "Votre avis a bien été posté. Merci pour votre contribution.";
-         }
-         else {
-             return ("Vous avez déjà posté un avis sur cet ouvrage. Cliquez sur \"Modifier mon avis\" si vous avez changer d'avis.");
-         }
-     }
-    */
-
-  @PostMapping("/AffichageLivresRecherchesTitre/{titre}")
-     public List<Livres> AffichageLivresRecherchesTitres(@PathVariable ("titre") String titre) {
-         List<Livres> listeLivresRecherches = livresRepositoryInterface.findByTitre(titre);
-             return listeLivresRecherches;
-         }
-
-    @PostMapping("/AffichageLivresRecherchesAuteur/{auteur}")
-    public List<Livres> AffichageLivresRecherchesAuteur(@PathVariable ("auteur") String auteur) {
-        List<Livres> listeLivresRecherches = livresRepositoryInterface.findByAuteur(auteur);
-        return listeLivresRecherches;
-    }
 
     @PostMapping("/AffichageLivresRecherchesIllustrateur/{illustrateur}")
     public List<Livres> AffichageLivresRecherchesIllustrateur(@PathVariable ("illustrateur") String illustrateur) {
@@ -101,21 +77,26 @@ public class MainWebController {
 
     @PostMapping("/ajoutUtilisateur")
     public String ajoutUtilisateur (@RequestBody Utilisateurs utilisateur) {
-        if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) == null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) == null) {
-            utilisateursRepositoryInterface.save(utilisateur);
-            return "Félicitation vous êtes désormais membre de MonCoinLecture.";
-        } else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) != null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) == null) {
-            return "Ce pseudo est déjà utilisé, veuillez en choisir un autre.";
-        }
-        else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) == null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) != null) {
-            return "Cette adresse mail est déjà associée à un compte.";
-        }
-        else {
-            return "Vous possédez déjà un compte.";
+        if (utilisateur.getPseudo() != "" && utilisateur.getAdresseMail() != "" && utilisateur.getMotDePasse() != "") {
+            if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) == null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) == null) {
+                utilisateur.setDateInscription(java.time.LocalDate.now());
+                utilisateursRepositoryInterface.save(utilisateur);
+                return "Félicitation vous êtes désormais membre de MonCoinLecture.";
+            } else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) != null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) == null) {
+                return "Ce pseudo est déjà utilisé, veuillez en choisir un autre.";
+            }
+            else if (utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo()) == null && utilisateursRepositoryInterface.findByAdresseMail(utilisateur.getAdresseMail()) != null) {
+                return "Cette adresse mail est déjà associée à un compte.";
+            }
+            else {
+                return "Vous possédez déjà un compte.";
+            }
+        } else {
+            return "Vous devez impérativement remplir un pseudo, une adresse mail et un mot de passe pour vous inscrire.";
         }
     }
 
-   @PostMapping("/modificationCompteUtilisateur")
+    @PostMapping("/modificationCompteUtilisateur")
     public String modificationCompteUtilisateur (@RequestBody Utilisateurs utilisateur) {
         Utilisateurs utilAModifier = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
         if (utilisateur.getAuteurFavori() != "") {
@@ -147,6 +128,11 @@ public class MainWebController {
         }
     }
 
+    @PostMapping("/mesInformations")
+    public Utilisateurs mesInformations(@RequestBody Utilisateurs utilisateur) {
+        Utilisateurs monCompte = utilisateursRepositoryInterface.findByPseudo(utilisateur.getPseudo());
+        return monCompte;
+    }
 
 
 
