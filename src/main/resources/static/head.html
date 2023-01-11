@@ -29,14 +29,19 @@
                 <li class="nav-item">
                 </li>
             </ul>
-            <form action="resultatRecherche.html" method="get" class="d-flex">
-                <input id="saisie" name="recherche" class="form-control me-2" type="text" placeholder="Que cherches_tu?">&emsp;
-                <div id="texte_recherche">Rechercher par :</div>
-                <select name="critere" class="form-control me-2" id="recherche">
+            <form action="resultatRecherche.html=" , method="get" class="d-flex" role="search">
+                <input id="texte" class="form-control me-2" type="text" placeholder="Que cherches_tu?"
+                    aria-label="Search">&emsp;
+                <div id="texte_recherche">Rechercher par :</div>&emsp;<select id="recherche">
                     <option value="Titre">Titre</option>
                     <option value="Auteur">Auteur</option>
                     <option value="Illustrateur">Illustrateur</option><br><br>
-                </select>&ensp;
+                </select>
+                <li class="nav-item">
+                    <a class="nav-link" href="head.html">D&eacuteconnexion</a>
+
+                </li>
+
                 <button id="bouton_ok" onclick="valider()" ;> Valider </button><br><br>
                 </ul>
             </form>
@@ -47,6 +52,7 @@
 <script>
     var input = document.getElementById("texte");
     var input_bis = document.getElementById("texte").value;
+
     function valider() {
         alert("input=" + input);
         alert("input_bis=" + input_bis);
