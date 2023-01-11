@@ -24,11 +24,11 @@
             Mot de Passe : <span id="monMDP"></span> <br/>
             Date d'inscription : <span id="maDateInscription"></span> <br/>
             Auteur favori : <span id="monAuteurFavori"></span> <br/>
-                >> Modifier mon auteur favori <input type="text" id="auteurFav" /> <br/>
+                >> Modifier mon auteur favori <input type="text" id="auteurFav" placeholder="auteur favori"/> <br/>
             Livre favori : <span id="monLivreFavori"></span> <br/>
-                >> Modifier mon livre favori <input type="text" id="livreFav" /> <br/>
+                >> Modifier mon livre favori <input type="text" id="livreFav" placeholder="livre favori"/> <br/>
             Description : <span id="maDescription"></span> <br/>
-                >> Modifier ma description <input type="text" id="description" /> <br/>
+                >> Modifier ma description <input type="text" id="description" placeholder="description"/> <br/>
             <button id="button">Valider les modifications</button>
         </section>
 
@@ -53,7 +53,7 @@ $.ajax({
       $('#maDateInscription').html(resultat.dateInscription);
       $('#monAuteurFavori').html(resultat.auteurFavori);
       $('#monLivreFavori').html(resultat.livreFavori);
-      $('#maDescription').html(resultat.descritpion);
+      $('#maDescription').html(resultat.description);
     }
     });
 
