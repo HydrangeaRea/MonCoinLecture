@@ -15,7 +15,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
     let nombre = retour.length;
     let nb=nombre;
 
-//Création des lignes
     for (let i = 0; i < nombre; i++){
         $("#id"+i).after(
             "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+
@@ -28,7 +27,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
         '<td id="info'+(i+1)+'"> <button id="afficher-info'+(i+1)+'">Info</button></td></tr>');
     };
 
-//Remplissage des lignes
     for(let i = 1; i <= nombre; i++){
         console.log(retour[i-1].id);
         $("#idlivre"+i).html(retour[(i-1)].id);
@@ -50,7 +48,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesAuteur/"+newString, f
     let nombre = retour.length;
     let nb=nombre;
 
-//Création des lignes
     for (let i = 0; i < nombre; i++){
         $("#id"+i).after(
             "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+

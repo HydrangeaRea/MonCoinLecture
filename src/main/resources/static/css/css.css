@@ -217,7 +217,7 @@ button{
     background: linear-gradient(rgba(167, 1, 87, 1), #ff5bb0);
   }
 
-  #bouton_ok{
+  #bouton_ok_head{
     width: 70px;
     height: 40px;
     margin-top: 15px;
@@ -241,3 +241,20 @@ button{
     margin-top: 20px;
     margin-bottom: 10px;
   }
+
+  #avancement{
+  width:150px;
+  }
+  #note{
+  width: 100;}
+
+  #div_bouton_ok{
+align-items: center;
+justify-content: center;
+text-align: center;
+  }
+
+    #attention{
+  text-align: center;
+  font-weight: bold;
+    }
