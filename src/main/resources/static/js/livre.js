@@ -7,7 +7,14 @@ let newString = thispos.replaceAll('%20', ' ');
 $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" + newString, function (retour) {
     let nombre = retour.length;
     let nb = nombre;
-
+    if (localStorage.idLivre == null) {
+        localStorage.idLivre = retour[(0)].id;
+        console.log(localStorage.idLivre);
+    } else {
+        localStorage.clear();
+        console.log(localStorage.idLivre);
+        localStorage.idLivre = retour[(0)].id;
+    }
     $("#titre").html(retour[(0)].titre);
     $("#auteur-livre").html(retour[(0)].auteur);
     $("#illustrateur").html(retour[(0)].illustrateur);
