@@ -22,6 +22,7 @@ public class Avis {
     public Avis() {
     }
 
+
     public Avis(String avancement, int note, String commentaire, int id_livre_suggestion, Utilisateurs utilisateur, Livres livre) {
         this.avancement = avancement;
         this.note = note;
@@ -89,7 +90,7 @@ public class Avis {
     }
 
     public void setUtilisateur(Utilisateurs utilisateur) {
-        utilisateur = utilisateur;
+        this.utilisateur = utilisateur;
     }
 
     public Livres getLivre() {
