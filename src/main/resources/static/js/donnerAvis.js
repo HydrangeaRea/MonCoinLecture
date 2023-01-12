@@ -1,5 +1,4 @@
 function getValue() {
-alert("Bonjour");
     var input_nom_membre = document.getElementById("input_nom_membre").value;
     var input_nom_livre = document.getElementById("input_nom_livre").value;
     var a=document.getElementById("avancement");

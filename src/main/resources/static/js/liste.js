@@ -15,7 +15,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
     let nombre = retour.length;
     let nb=nombre;
 
-//Création des lignes
     for (let i = 0; i < nombre; i++){
         $("#id"+i).after(
             "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+
@@ -28,17 +27,16 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
         '<td id="info'+(i+1)+'"> <button id="afficher-info'+(i+1)+'">Info</button></td></tr>');
     };
 
-//Remplissage des lignes
     for(let i = 1; i <= nombre; i++){
-        console.log(retour[i-1].id);
+        console.log(retour[i-1].couverture);
         $("#idlivre"+i).html(retour[(i-1)].id);
-        $("#couverture"+i).attr('src', retour[(i-1)].couverture); //Je trouve pas l'erreur
+        $("#couverture"+i).attr('src'+retour[(i-1)].couverture); //Je trouve pas l'erreur
         $("#titre-livre"+i).html(retour[(i-1)].titre);
         $("#auteur"+i).html(retour[(i-1)].auteur);
         $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
         $("#genre"+i).html(retour[(i-1)].genre);
         $("#type"+i).html(retour[(i-1)].type);
-        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
+        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="livre.html?ouvrage='+retour[(i-1)].titre+'&">Info</a></button></td></tr>'); //Mettre lien info
 
     };
 
@@ -50,7 +48,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesAuteur/"+newString, f
     let nombre = retour.length;
     let nb=nombre;
 
-//Création des lignes
     for (let i = 0; i < nombre; i++){
         $("#id"+i).after(
             "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+
@@ -73,7 +70,7 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesAuteur/"+newString, f
         $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
         $("#genre"+i).html(retour[(i-1)].genre);
         $("#type"+i).html(retour[(i-1)].type);
-        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
+        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="livre.html?ouvrage='+retour[(i-1)].titre+'&">Info</a></button></td></tr>'); //Mettre lien info
 
     };
 
@@ -102,13 +99,13 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
     for(let i = 1; i <= nombre; i++){
         console.log(retour[i-1].id);
         $("#idlivre"+i).html(retour[(i-1)].id);
-        $("#couverture"+i).attr('src', retour[(i-1)].couverture); //Je trouve pas l'erreur
+        $("#couverture"+i).attr('src=', retour[(i-1)].couverture); //Je trouve pas l'erreur
         $("#titre-livre"+i).html(retour[(i-1)].titre);
         $("#auteur"+i).html(retour[(i-1)].auteur);
         $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
         $("#genre"+i).html(retour[(i-1)].genre);
         $("#type"+i).html(retour[(i-1)].type);
-        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
+        $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="livre.html?ouvrage='+retour[(i-1)].titre+'&">Info</a></button></td></tr>'); //Mettre lien info
 
     };
 
@@ -143,10 +140,8 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
             $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
             $("#genre"+i).html(retour[(i-1)].genre);
             $("#type"+i).html(retour[(i-1)].type);
-            $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
-
+            $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="livre.html?ouvrage='+retour[(i-1)].titre+'&">Info</a></button></td></tr>'); //Mettre lien info
         };
-
     })}
     else if (window.location.href.indexOf("Manga") > -1) {
           alert("your url contains the word manga");
@@ -212,8 +207,6 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
             $("#genre"+i).html(retour[(i-1)].genre);
             $("#type"+i).html(retour[(i-1)].type);
             $("#info"+i).html('<td id="info'+(i)+'"> <button id="afficher-info'+(i)+'"><a href="/voirLeLivre/'+retour[(i-1)].titre+'">Info</a></button></td></tr>'); //Mettre lien info
-
         };
-
     })}
 });

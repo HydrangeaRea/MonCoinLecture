@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <title>Inscription</title>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.rtl.min.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="css/css.css" />
 </head>
+
 <body>
-<script src='http://code.jquery.com/jquery-3.6.0.min.js'></script>
-<br><br>
 
+<script src='http://code.jquery.com/jquery.min.js'></script>
 
- QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN COMMENTAIRE!<br><br>
-<span>ID membre</span><input disabled="disabled" type="text" id="input_nom_membre" required
-       minlength="2" maxlength="4" size="10"><br><br>
+<div class="container-vert">
+    <div class="head-placeholder"></div>
 
+    <div class="container">
+        <aside class="membre-placeholder"></aside>
+        <section class="block_content">
+            <div>QUAND UN MEMBRE SE CONNECTE, IL FAUT DEFINIR SON ID QUI SERA PREREMPLI LORS DU DEPOT D UN
+                COMMENTAIRE!
+                <span>ID membre &ensp;</span><input disabled="disabled" type="text" id="input_nom_membre" required minlength="2" maxlength="4" size="10"></div><br>
 
- QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA PREREMPLI!<br><br>
+            <div>QUAND ON ENTRE SUR LA PAGE DU LIVRE EN QUESTION, IL FAUT DEFINIR LE NOM DU LIVRE OU SON ID QUI SERA
+                PREREMPLI!
+                <span>Nom du livre &ensp;</span><input disabled="disabled" type="text" id="input_nom_livre" required minlength="2" maxlength="4" size="10"></div><br>
 
-<span>Nom du livre</span><input  disabled="disabled" type="text" id="input_nom_livre" required
-       minlength="2" maxlength="4" size="10">
-<br><br>
+            <div>Evaluation &ensp;<select id="note" name="evalutation">
+                <option value=null>Je ne sais pas.</option>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+            </select></div><br>
 
-Evaluation: <select id="note" name="evalutation"><option value=null>Je ne sais pas.</option><option value=0>0</option><option value=1>1</option><option value=2">2</option><option value=3>3</option><option value=4">4</option><option value=5>5</option><br><br></select>
-<br><br>
-Avancement de la lecture :<select id="avancement" name="avancement"><option value="Lu">Lu</option><option value="En cours de lecture">En cours de lecture</option><option value="A lire">A lire</option><br><br></select>
+            <div>Avancement de la lecture &ensp;<select id="avancement" name="avancement">
+                <option value="Lu">Lu</option>
+                <option value="En cours de lecture">En cours de lecture</option>
+                <option value="A lire">A lire</option>
+            </select></div><br>
 
-<br><br>
-    <span>Entrer commentaire</span><input type="text" id="input_commentaire" required
-       minlength="2" maxlength="500" size="100">
-<br><br>
-    <span>Entrer suggestion livre</span><input type="text" id="input_suggestion_livre" required
-       minlength="2" maxlength="4" size="10">
-<br><br>
+            <div><span>Entrer commentaire &ensp;</span><input type="text" id="input_commentaire" required minlength="2" maxlength="500" size="60"></div><br>
+            <div><span>Entrer suggestion livre &ensp;</span><input type="text" id="input_suggestion_livre" required minlength="2" maxlength="4" size="10"></div><br>
 
-<button id="bouton_ok" onclick="getValue()";> Valider </button><br><br>
-<div>Attention, pour déposer un avis sur LeCoinLecture, il faut être inscrit sur le site.</div>
-<script src="donnerAvis.js"></script>
+            <div id="div_bouton_ok"><button id="bouton_ok" onclick="getValue()" ;> Valider </button></div><br>
+            <div id="attention">Attention, pour déposer un avis sur MonCoinLecture, il faut être inscrit sur le site.</div><br>
+    </div>
+    <footer class="footer"></footer>
+</div>
+
+<script src="js/scriptEnCommun.js"></script>
+<script src="js/donnerAvis.js"></script>
 </body>
+
 </html>
 
