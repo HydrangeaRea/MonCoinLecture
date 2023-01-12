@@ -18,7 +18,7 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
     let nb=nombre;
     if (nombre ==0){
     alert("Désolé, aucun ouvrage ne correspond à votre recherche");
-    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche";
+
 
     }
     else{

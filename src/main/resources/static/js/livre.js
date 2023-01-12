@@ -4,6 +4,8 @@ var end;
 end = val.search(/&/);
 var thispos = val.substring(start + 8, end);
 let newString = thispos.replaceAll('%20', ' ');
+let finalString = newString.replaceAll('%27',' ');
+
 $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" + newString, function (retour) {
     let nombre = retour.length;
     let nb = nombre;
@@ -28,3 +30,18 @@ if (localStorage.idLivre == null) {
     $("#volume").html(retour[(0)].volume);
     $("#resume").html(retour[(0)].resume);
 });
+
+    function ajouterAMaListe(){
+    let data= {titre : document.getElementById("titre"), auteur : document.getElementById("auteur-livre")}
+    $.ajax({
+    type: "POST",
+    headers: {"Content-Type": "application/JSON"},
+    url: "http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString,
+            data: JSON.stringify(data),
+    success: function(resultat) {
+    console.log("data="+data);
+    console.log("stringify="+JSON.stringify(data));
+        sessionStorage.auteur= $('#auteur-livre').val();
+    }
+    });
+}
