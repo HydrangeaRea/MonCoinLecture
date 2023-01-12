@@ -42,14 +42,35 @@
                 </select>
                 <button id="bouton_ok_head"> Valider </button><br><br>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="head.html">D&eacuteconnexion</a>
-
-                </li>
-
                 </ul>
             </form>
                 <button id="deconnexion" >Deconnexion</button>
         </div>
     </div>
 </nav>
+
+<script>
+    if (sessionStorage.pseudo == null) {
+        $('#deconnexion').hide();
+        $('#inscriptionConnexion').show();
+        $('#monCompte').hide();
+    } else {
+        $('#deconnexion').show();
+        $('#inscriptionConnexion').hide();
+        $('#monCompte').show();
+    }
+
+
+
+    
+$('#deconnexion').on("click", function () {
+    if (sessionStorage.pseudo != null) {
+    sessionStorage.clear();
+    alert("Vous avez été déconnecté avec succès.");
+    $('#deconnexion').hide();
+    $('#inscriptionConnexion').show();
+    $('#monCompte').hide();
+    document.location.reload();
+    }
+    });
+</script>
