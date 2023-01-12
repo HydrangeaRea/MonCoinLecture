@@ -22,6 +22,7 @@ public class MainWebController {
 
     @PostMapping("/Avis")
     public String Ajouter_Avis(@RequestBody Avis avis1) {
+            System.out.println(avis1);
             avisRepositoryInterface.save(avis1);
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }
@@ -92,6 +93,13 @@ public class MainWebController {
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
         Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, null,  "Bonjour");
+        livresRepositoryInterface.save(livres);
+        return livres;
+    }
+
+    @GetMapping("/ajouterUnLivre2")
+    public Livres ajout_livre2(){
+        Livres livres= new Livres("Harry Potter 2", "Harry Potter", "2/7", "fini", "J.K Rowling", "Aucun", "Gallimard", "Fantasy", "Roman", null, null,  "Bonjour");
         livresRepositoryInterface.save(livres);
         return livres;
     }
