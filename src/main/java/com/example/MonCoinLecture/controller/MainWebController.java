@@ -69,6 +69,14 @@ public class MainWebController {
         return listeAvis;
     }*/
 
+    @GetMapping("/livreAuHasard")
+    public Livres livreAuHarsard(){
+        List<Livres> tousLeslivres = livresRepositoryInterface.findAll();
+        int max = tousLeslivres.size()-1;
+        int nombreAleatoire = (int)(Math.random() * ((max) + 1));
+        return tousLeslivres.get(nombreAleatoire);
+    }
+
     @GetMapping("/voirTousLesAvis/{pseudo}")
     public List<Avis> listeAvisParUtilisateur(@PathVariable ("pseudo") String pseudo){
         Utilisateurs user = utilisateursRepositoryInterface.findByPseudo(pseudo);

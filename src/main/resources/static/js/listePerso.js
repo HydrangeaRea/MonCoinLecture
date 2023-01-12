@@ -22,7 +22,7 @@ $.get("http://localhost:8080/API/voirTousLesAvis/"+sessionStorage.pseudo, functi
     for (let i = 1; i <= nombre; i++) {
         console.log(retour[i - 1].id);
         console.log(retour[i-1])
-        $("#couverture-liste-livre" + i).attr('src', retour[(i - 1)].couverture); //Je trouve pas l'erreur
+        $("#miniature-couverture" + i).attr("src", retour[(i - 1)].livre.couverture); //Je trouve pas l'erreur
         $("#titre-livre" + i).html(retour[(i - 1)].livre.titre);
         $("#avancement-livre" + i).html(retour[(i - 1)].avancement);
         $("#avis" + i).html(retour[(i - 1)].note+"/5");

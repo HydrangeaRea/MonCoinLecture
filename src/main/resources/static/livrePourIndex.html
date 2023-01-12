@@ -1,0 +1,46 @@
+<h2 id="titre">Titre du livre</h2>
+<div id="container-info-livre">
+    <div id="colone-gauche-livre">
+        <p><span id="serie-livre">Nom de la série</span> <span id="volume">X/tot</span></p>
+        <p>
+            <span class="span">Auteur</span> : <span id="auteur-livre"></span><br>
+            <span class="span">Illustrateur</span> : <span id="illustrateur"></span><br>
+            <span class="span">Genre</span> : <span id="type"></span><br>
+            <span class="span">Type</span> : <span id="type1"></span><br>
+            <span class="span">Avancement</span> : <span id="avancement"></span><br>
+            <span class="span">Editeur</span> : <span id="editeur"></span><br>
+            <span class="span">Date de sortie</span> : <span id="date-de-sortie"></span><br>
+
+        </p>
+
+    </div>
+    <div id="colone-droite-livre">
+        <img src="css/date-a-live-vol-3.webp" id="couverture">
+    </div>
+</div>
+<div id="resume"></div>
+<button id="donnerAvis"><a href="/donnerAvis.html"> Donner mon avis</a></button>
+
+<button id="modificationAvis"><a href="RAJOUTER ADRESSE">Modifier mon avis</a></button>
+
+<div id="avis">Avis des utilisateurs (à dérouler)</div>
+
+<script>
+
+    $.get("http://localhost:8080/API/livreAuHasard", function (retour) {
+        console.log(retour);
+
+        $("#titre").html(retour.titre);
+    $("#auteur-livre").html(retour.auteur);
+    $("#illustrateur").html(retour.illustrateur);
+    $("#type").html(retour.genre);
+    $("#couverture").attr("src", retour.couverture);
+    $("#type1").html(retour.type);
+    $("#editeur").html(retour.editeur);
+    $("#date_de_sortie").html(retour.datePubli);
+    $("#avancement").html(retour.avancement);
+    $("#serie-livre").html(retour.titreSerie);
+    $("#volume").html(retour.volume);
+    $("#resume").html(retour.resume);
+    });
+</script>
