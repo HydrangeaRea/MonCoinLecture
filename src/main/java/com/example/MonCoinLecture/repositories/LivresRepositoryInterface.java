@@ -11,5 +11,5 @@ public interface LivresRepositoryInterface extends JpaRepository<Livres, Integer
     List<Livres> findByAuteur (String auteur);
     List<Livres> findByIllustrateur (String illustrateur);
     List<Livres> findByType (String type);
-    Livres findById (int Id);
+    Livres findById (int id);
 }
