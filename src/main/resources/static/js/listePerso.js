@@ -1,4 +1,4 @@
-$.get("http://localhost:8080/API/voirTousLesAvis/Rea", function (retour) {
+$.get("http://localhost:8080/API/voirTousLesAvis/"+sessionStorage.pseudo, function (retour) {
     let nombre = retour.length;
 
     let nb = nombre;

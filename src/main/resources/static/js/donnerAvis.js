@@ -10,7 +10,7 @@ $.ajax({
       localStorage.idMembre = resultat.id;
 
     }
-    });
+});
 $('#input_nom_livre').val(localStorage.idLivre);
 
 function getValue() {
@@ -23,8 +23,8 @@ function getValue() {
     var input_commentaire= document.getElementById("input_commentaire").value;
     var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
 
-console.log("membre="+input_nom_membre);
-console.log("livre="+input_nom_livre);
+    console.log("membre=" + input_nom_membre);
+    console.log("livre=" + input_nom_livre);
 
 if(sessionStorage.pseudo == null){
     alert("Vous devez être inscrit sur MonCoinLecture pour déposer un commentaire.")
