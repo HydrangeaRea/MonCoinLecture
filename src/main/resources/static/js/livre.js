@@ -44,9 +44,10 @@ console.log("etape1= OK");
     document.getElementById("tableau").style.display="none";
     }
     else{
+    $('#liste_vide').html("Voici les avis de notre communauté :")
     for (let i = 0; i < nombre; i++){
         $("#id"+i).after(
-            "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+
+            "<tr id='id"+(i+1)+"'><td id='pseudo"+(i+1)+"'>"+(i+1)+"</td>"+
         '<td id="note'+(i+1)+'"></td>'+
         '<td id="commentaire'+(i+1)+'"></td>'+
         '<td id="avancement'+(i+1)+'"></td>'
@@ -54,9 +55,9 @@ console.log("etape1= OK");
 };
     for(let i = 1; i <= nombre; i++){
         console.log(retour[i-1].note);
-        $("#idlivre"+i).html(retour[(i-1)].id);
+        $("#pseudo"+i).html(retour[(i-1)].utilisateur.pseudo);
         $("#note"+i).html(retour[(i-1)].note);
         $("#commentaire"+i).html(retour[(i-1)].commentaire);
-                $("#avancement"+i).html(retour[(i-1)].avancement);
+        $("#avancement"+i).html(retour[(i-1)].avancement);
     }};
 })
