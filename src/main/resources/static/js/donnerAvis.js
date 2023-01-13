@@ -21,7 +21,6 @@ function getValue() {
     var n=document.getElementById("note");
     var input_note = n.options[n.selectedIndex].text;
     var input_commentaire= document.getElementById("input_commentaire").value;
-    var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
 
     console.log("membre=" + input_nom_membre);
     console.log("livre=" + input_nom_livre);
@@ -40,7 +39,7 @@ let avis1= {avancement: input_avancement, commentaire: input_commentaire, livre:
         url: "http://localhost:8080/API/Avis",
         data: JSON.stringify(avis1),
         success: function(resultat) {
-            alert(resultat);
+            $('#messageAvis').html(resultat);
             console.log(JSON.stringify(avis1));
         }
     })
