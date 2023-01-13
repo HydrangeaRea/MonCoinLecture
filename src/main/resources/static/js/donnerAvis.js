@@ -8,8 +8,9 @@ $.ajax({
       console.log("resultat id="+resultat.id);
       $('#input_pseudo').val(resultat.id);
       localStorage.idMembre = resultat.id;
+
     }
-    });
+});
 $('#input_nom_livre').val(localStorage.idLivre);
 
 function getValue() {
@@ -22,8 +23,8 @@ function getValue() {
     var input_commentaire= document.getElementById("input_commentaire").value;
     var input_suggestion_livre = document.getElementById("input_suggestion_livre").value;
 
-console.log("membre="+input_nom_membre);
-console.log("livre="+input_nom_livre);
+    console.log("membre=" + input_nom_membre);
+    console.log("livre=" + input_nom_livre);
 
 if(sessionStorage.pseudo == null){
     alert("Vous devez être inscrit sur MonCoinLecture pour déposer un commentaire.")
@@ -31,7 +32,7 @@ if(sessionStorage.pseudo == null){
 else{
     if (input_note != 0 && input_note != 1 && input_note != 2 && input_note != 3 && input_note != 4 && input_note != 5){
     input_note = null;}
-let avis1= {avancement: input_avancement, commentaire: input_commentaire, id_livre: input_nom_livre, id_livre_suggestion: input_suggestion_livre, id_utilisateur: input_nom_membre, note: input_note}
+let avis1= {avancement: input_avancement, commentaire: input_commentaire, livre: {id: input_nom_livre}, id_livre_suggestion: input_suggestion_livre, utilisateur: {id: input_nom_membre}, note: input_note}
 
     $.ajax({
         type: "POST",

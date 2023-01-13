@@ -15,12 +15,13 @@ public class Avis {
     private int id_livre_suggestion;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Utilisateurs utilisateur = new Utilisateurs();
+    private Utilisateurs utilisateur;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Livres livre = new Livres();
+    private Livres livre;
     public Avis() {
     }
+
 
     public Avis(String avancement, int note, String commentaire, int id_livre_suggestion, Utilisateurs utilisateur, Livres livre) {
         this.avancement = avancement;
@@ -89,7 +90,7 @@ public class Avis {
     }
 
     public void setUtilisateur(Utilisateurs utilisateur) {
-        utilisateur = utilisateur;
+        this.utilisateur = utilisateur;
     }
 
     public Livres getLivre() {

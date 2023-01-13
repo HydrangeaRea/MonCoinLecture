@@ -2,7 +2,6 @@ package com.example.MonCoinLecture.beans;
 
 import jakarta.persistence.*;
 
-import java.awt.image.BufferedImage;
 import java.util.Date;
 
 @Entity
