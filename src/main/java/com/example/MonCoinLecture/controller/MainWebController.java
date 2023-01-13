@@ -24,6 +24,7 @@ public class MainWebController {
     public String Ajouter_Avis(@RequestBody Avis avis1) {
         avis1.setLivre(livresRepositoryInterface.findById(avis1.getLivre().getID()));
         avis1.setUtilisateur(utilisateursRepositoryInterface.findById(avis1.getUtilisateur().getID()));
+        System.out.println(avis1);
         avisRepositoryInterface.save(avis1);
             return "Votre avis a bien été posté. Merci pour votre contribution.";
         }

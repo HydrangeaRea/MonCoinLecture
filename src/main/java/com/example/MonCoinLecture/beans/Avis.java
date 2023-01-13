@@ -12,8 +12,6 @@ public class Avis {
     private int note;
     private String commentaire;
 
-    private int id_livre_suggestion;
-
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Utilisateurs utilisateur;
 
@@ -23,11 +21,10 @@ public class Avis {
     }
 
 
-    public Avis(String avancement, int note, String commentaire, int id_livre_suggestion, Utilisateurs utilisateur, Livres livre) {
+    public Avis(String avancement, int note, String commentaire, Utilisateurs utilisateur, Livres livre) {
         this.avancement = avancement;
         this.note = note;
         this.commentaire = commentaire;
-        this.id_livre_suggestion = id_livre_suggestion;
         this.utilisateur = utilisateur;
         this.livre = livre;
     }
@@ -39,7 +36,6 @@ public class Avis {
                 ", avancement='" + avancement + '\'' +
                 ", note=" + note +
                 ", commentaire='" + commentaire + '\'' +
-                ", id_livre_suggestion=" + id_livre_suggestion +
                 ", Utilisateur=" + utilisateur +
                 ", livre=" + livre +
                 '}';
@@ -61,10 +57,6 @@ public class Avis {
         return commentaire;
     }
 
-    public int getId_livre_suggestion() {
-        return id_livre_suggestion;
-    }
-
     public void setID(int ID) {
         this.ID = ID;
     }
@@ -79,10 +71,6 @@ public class Avis {
 
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
-    }
-
-    public void setId_livre_suggestion(int id_livre_suggestion) {
-        this.id_livre_suggestion = id_livre_suggestion;
     }
 
     public Utilisateurs getUtilisateur() {

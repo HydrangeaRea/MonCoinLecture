@@ -1,14 +1,14 @@
 var liste_vide = document.getElementById("liste_vide");
 
-var val=document.URL;
+var val = document.URL;
 start = val.search(/recherche=/);
 var end;
 end = val.search(/&/);
-var thispos = val.substring(start+10,end);
-console.log("val= "+val);
-console.log("thispos= "+thispos);
-let newString = thispos.replaceAll('+',' ');
-console.log("newString= "+newString);
+var thispos = val.substring(start + 10, end);
+console.log("val= " + val);
+console.log("thispos= " + thispos);
+let newString = thispos.replaceAll('+', ' ');
+console.log("newString= " + newString);
 
   $(document).ready(function() {
     if (window.location.href.indexOf("Titre") > -1) {

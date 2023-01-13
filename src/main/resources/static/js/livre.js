@@ -9,8 +9,8 @@ let string2 = string1.replaceAll('%27',' ');
 $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" +string2, function (retour) {
     let nombre = retour.length;
     let nb = nombre;
-
-if (localStorage.idLivre == null) {
+    console.log(retour);
+   if (localStorage.idLivre == null) {
         localStorage.idLivre = retour[(0)].id;
         console.log("id livre ="+localStorage.idLivre);
     } else {
@@ -21,6 +21,7 @@ if (localStorage.idLivre == null) {
     $("#titre").html(retour[(0)].titre);
     $("#auteur-livre").html(retour[(0)].auteur);
     $("#illustrateur").html(retour[(0)].illustrateur);
+    $("#couverture").attr("src", retour[(0)].couverture);
     $("#type").html(retour[(0)].genre);
     $("#type1").html(retour[(0)].type);
     $("#editeur").html(retour[(0)].editeur);
