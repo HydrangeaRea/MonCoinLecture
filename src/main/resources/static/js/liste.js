@@ -37,7 +37,7 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
     for(let i = 1; i <= nombre; i++){
         console.log(retour[i-1].couverture);
         $("#idlivre"+i).html(retour[(i-1)].id);
-        $("#couverture"+i).attr('src'+retour[(i-1)].couverture); //Je trouve pas l'erreur
+        $("#couverture"+i).attr('src'+retour[(i-1)].livre.couverture); //Je trouve pas l'erreur
         $("#titre-livre"+i).html(retour[(i-1)].titre);
         $("#auteur"+i).html(retour[(i-1)].auteur);
         $("#illustrateur"+i).html(retour[(i-1)].illustrateur);
