@@ -7,7 +7,8 @@ end = val.search(/&/);
 var thispos = val.substring(start + 10, end);
 console.log("val= " + val);
 console.log("thispos= " + thispos);
-let newString = thispos.replaceAll('+', ' ');
+let string1 = thispos.replaceAll('%20',' ');
+let newString = string1.replaceAll('+', ' ');
 console.log("newString= " + newString);
 
   $(document).ready(function() {

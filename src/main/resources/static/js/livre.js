@@ -4,9 +4,10 @@ var end;
 end = val.search(/&/);
 var thispos = val.substring(start + 8, end);
 let string1 = thispos.replaceAll('%20', ' ');
-let string2 = string1.replaceAll('%27',' ');
+let string2 = string1.replaceAll('%27','\'');
+let string3 = string2.replaceAll('%29','\'');
 
-$.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" +string2, function (retour) {
+$.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" +string3, function (retour) {
     let nombre = retour.length;
     let nb = nombre;
     console.log(retour);
