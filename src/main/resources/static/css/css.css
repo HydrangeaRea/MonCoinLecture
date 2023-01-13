@@ -220,6 +220,14 @@ button{
     background: linear-gradient(rgba(167, 1, 87, 1), #ff5bb0);
   }
 
+  button a {
+    color:#ffffff;
+  }
+
+  button a:hover {
+    color:#ffddfe;
+  }
+
   #bouton_ok_head{
     width: 70px;
     height: 40px;
