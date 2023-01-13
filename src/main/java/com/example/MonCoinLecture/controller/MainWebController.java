@@ -84,12 +84,15 @@ public class MainWebController {
         Utilisateurs user = utilisateursRepositoryInterface.findByPseudo(pseudo);
         return avisRepositoryInterface.findByUtilisateur(user);
     }
-    @GetMapping("/trierAvisParLivre/{titreLivre}")
-    public List<Avis> trierAvisParId(@PathVariable ("titreLivre") String titreLivre){
-        return avisRepositoryInterface.findByLivre(titreLivre);
+
+    @GetMapping("/voirTousLesAvisParLivre/{IdLivre}")
+    public List<Avis> listeAvisParLivre(@PathVariable ("IdLivre") int IdLivre){
+        System.out.println("Id du livre="+IdLivre);
+        Livres livre = livresRepositoryInterface.findById(IdLivre);
+        return avisRepositoryInterface.findByLivre(livre);
     }
 
-    @GetMapping("/modifierAvis/{titreLivre}")
+    @PostMapping("/modifierAvis/{titreLivre}")
     public String modifierAvis(@PathVariable("titreLivre") String titreLivre){
         avisRepositoryInterface.findByLivre(titreLivre);
         if (avisRepositoryInterface.findByLivre(titreLivre).isEmpty()== true && avisRepositoryInterface.findByLivre(titreLivre.toUpperCase()).isEmpty()== true){

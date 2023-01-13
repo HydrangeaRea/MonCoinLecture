@@ -35,21 +35,22 @@
                     </div>
                     <div id="colone-droite-livre">
                         <img src="css/date-a-live-vol-3.webp" id="couverture">
-                        <div id="bouton-nav">
-                            <button id="vol-precedent">Vol Précédent</button>
-                            <button id="vol-suivant">Vol Suivant</button>
-                        </div>
                     </div>
                 </div>
                 <div id="resume"></div>
                 <button id="donnerAvis"><a href="/donnerAvis.html"> Donner mon avis</a></button>
+                <div id="liste_vide"></div>
 
-                <button id="modificationAvis"><a href= "RAJOUTER ADRESSE">Modifier mon avis</a></button>
-
-                <button id="ajouterAMaListe" onclick="ajouterAMaListe()";>Ajouter à ma liste</button>
-
-                <div id="avis">Avis des utilisateurs (à dérouler)</div>
-
+                <div id="tableau">
+        <table class="ligne-avis">
+            <tr id="id0">
+                <th>#</th>
+                <th>Note</th>
+                <th>Commentaire</th>
+                <th>Avancement</th>
+            </tr>
+        </table>
+                </div>
             </section>
         </div>
         <footer class="footer"></footer>

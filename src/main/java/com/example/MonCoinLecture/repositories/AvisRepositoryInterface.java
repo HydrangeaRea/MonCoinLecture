@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.List;
 
 public interface AvisRepositoryInterface extends JpaRepository<Avis, Integer>, JpaSpecificationExecutor<Livres> {
-    Avis findById(int Id);
+    List<Avis> findByLivre(int Id);
+    List<Avis> findByLivre (Livres livres);
 
     List<Avis> findByUtilisateur(Utilisateurs user);
 

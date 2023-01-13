@@ -3,20 +3,20 @@ start = val.search(/ouvrage=/);
 var end;
 end = val.search(/&/);
 var thispos = val.substring(start + 8, end);
-let newString = thispos.replaceAll('%20', ' ');
-let finalString = newString.replaceAll('%27',' ');
+let string1 = thispos.replaceAll('%20', ' ');
+let string2 = string1.replaceAll('%27',' ');
 
-$.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" + newString, function (retour) {
+$.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" +string2, function (retour) {
     let nombre = retour.length;
     let nb = nombre;
     console.log(retour);
    if (localStorage.idLivre == null) {
         localStorage.idLivre = retour[(0)].id;
-        console.log(localStorage.idLivre);
+        console.log("id livre ="+localStorage.idLivre);
     } else {
         localStorage.clear();
-        console.log(localStorage.idLivre);
         localStorage.idLivre = retour[(0)].id;
+                console.log("id livre ="+localStorage.idLivre);
     }
     $("#titre").html(retour[(0)].titre);
     $("#auteur-livre").html(retour[(0)].auteur);
@@ -32,17 +32,30 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" + newString, 
     $("#resume").html(retour[(0)].resume);
 });
 
-    function ajouterAMaListe(){
-    let data= {titre : document.getElementById("titre"), auteur : document.getElementById("auteur-livre")}
-    $.ajax({
-    type: "POST",
-    headers: {"Content-Type": "application/JSON"},
-    url: "http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString,
-            data: JSON.stringify(data),
-    success: function(resultat) {
-    console.log("data="+data);
-    console.log("stringify="+JSON.stringify(data));
-        sessionStorage.auteur= $('#auteur-livre').val();
+$.get("http://localhost:8080/API/voirTousLesAvisParLivre/"+localStorage.idLivre, function (retour) {
+console.log("etape1= OK");
+    let nombre = retour.length;
+    let nb=nombre;
+
+    console.log("retour="+retour.length);
+    if (nombre ==0){
+    liste_vide.innerHTML= "Soyez le premier à donner votre avis!"
+    document.getElementById("tableau").style.display="none";
     }
-    });
-}
+    else{
+    for (let i = 0; i < nombre; i++){
+        $("#id"+i).after(
+            "<tr id='id"+(i+1)+"'><td id='idlivre"+(i+1)+"'>"+(i+1)+"</td>"+
+        '<td id="note'+(i+1)+'"></td>'+
+        '<td id="commentaire'+(i+1)+'"></td>'+
+        '<td id="avancement'+(i+1)+'"></td>'
+)
+};
+    for(let i = 1; i <= nombre; i++){
+        console.log(retour[i-1].note);
+        $("#idlivre"+i).html(retour[(i-1)].id);
+        $("#note"+i).html(retour[(i-1)].note);
+        $("#commentaire"+i).html(retour[(i-1)].commentaire);
+                $("#avancement"+i).html(retour[(i-1)].avancement);
+    }};
+})
