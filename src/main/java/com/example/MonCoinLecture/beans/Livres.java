@@ -2,6 +2,7 @@ package com.example.MonCoinLecture.beans;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -19,7 +20,7 @@ public class Livres {
     private String editeur = "";
     private String genre = "";
     private String type = "";
-    private Date datePubli;
+    private LocalDate datePubli;
     private String couverture;
     @Column(columnDefinition = "TEXT")
     private String resume = "";
@@ -27,7 +28,7 @@ public class Livres {
     public Livres() {
     }
 
-    public Livres(String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, Date datePubli, String couverture, String resume) {
+    public Livres(String titre, String titreSerie, String volume, String avancement, String auteur, String illustrateur, String editeur, String genre, String type, LocalDate datePubli, String couverture, String resume) {
         this.titre = titre;
         this.titreSerie = titreSerie;
         this.volume = volume;
@@ -101,7 +102,7 @@ public class Livres {
         return type;
     }
 
-    public Date getDatePubli() {
+    public LocalDate getDatePubli() {
         return datePubli;
     }
 
@@ -153,7 +154,7 @@ public class Livres {
         this.type = type;
     }
 
-    public void setDatePublication(Date datePubli) {
+    public void setDatePublication(LocalDate datePubli) {
         this.datePubli = datePubli;
     }
 
