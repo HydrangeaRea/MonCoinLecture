@@ -185,7 +185,6 @@ a{
 
 .ligne-de-livre{
 justify-content: center;
-
 }
 
 table{
@@ -262,3 +261,10 @@ text-align: center;
   text-align: center;
   font-weight: bold;
     }
+
+#liste_vide{
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    margin-left: 100px;
+}

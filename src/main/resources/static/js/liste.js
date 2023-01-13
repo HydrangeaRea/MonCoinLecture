@@ -12,14 +12,12 @@ console.log("newString= "+newString);
 
   $(document).ready(function() {
     if (window.location.href.indexOf("Titre") > -1) {
-      alert("your url contains the word titre");
 $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, function (retour) {
     let nombre = retour.length;
     let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
-
-
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
+    document.getElementById("tableau").style.display="none";
     }
     else{
     for (let i = 0; i < nombre; i++){
@@ -50,12 +48,11 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/"+newString, fu
 })
     }
     else if (window.location.href.indexOf("Auteur") > -1) {
-      alert("your url contains the word Auteur");
 $.post("http://localhost:8080/API/AffichageLivresRecherchesAuteur/"+newString, function (retour) {
     let nombre = retour.length;
     let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
     }
     else{
     for (let i = 0; i < nombre; i++){
@@ -87,12 +84,11 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesAuteur/"+newString, f
 })
     }
     else if (window.location.href.indexOf("Illustrateur") > -1) {
-      alert("your url contains the word Illustrateur");
 $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newString, function (retour) {
     let nombre = retour.length;
     let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
     }
     else{
 //Création des lignes
@@ -125,12 +121,11 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
 })
     }
     else if (window.location.href.indexOf("Roman") > -1) {
-          alert("your url contains the word roman");
     $.post("http://localhost:8080/API/AffichageLivresRecherchesType/"+newString, function (retour) {
         let nombre = retour.length;
         let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
     }
     else{
         //Création des lignes
@@ -161,12 +156,11 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
         }
     })}
     else if (window.location.href.indexOf("Manga") > -1) {
-          alert("your url contains the word manga");
     $.post("http://localhost:8080/API/AffichageLivresRecherchesType/"+newString, function (retour) {
         let nombre = retour.length;
         let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
     }
     else{
         //Création des lignes
@@ -198,12 +192,11 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesIllustrateur/"+newStr
 }
     })}
     else if (window.location.href.indexOf("BD") > -1) {
-          alert("your url contains the word BD");
     $.post("http://localhost:8080/API/AffichageLivresRecherchesType/"+newString, function (retour) {
         let nombre = retour.length;
         let nb=nombre;
     if (nombre ==0){
-    alert("Désolé, aucun ouvrage ne correspond à votre recherche");
+    liste_vide.innerHTML= "Désolé, aucun ouvrage ne correspond à votre recherche..."
     }
     else{
         //Création des lignes
