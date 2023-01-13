@@ -23,10 +23,12 @@ $.post("http://localhost:8080/API/AffichageLivresRecherchesTitre/" +string3, fun
     $("#auteur-livre").html(retour[(0)].auteur);
     $("#illustrateur").html(retour[(0)].illustrateur);
     $("#couverture").attr("src", retour[(0)].couverture);
+    console.log(retour[(0)].couverture);
     $("#type").html(retour[(0)].genre);
     $("#type1").html(retour[(0)].type);
     $("#editeur").html(retour[(0)].editeur);
-    $("#date_de_sortie").html(retour[(0)].datePubli);
+    $("#date-de-sortie").html(retour[(0)].datePubli);
+    console.log("date"+retour[(0)].datePubli)
     $("#avancement").html(retour[(0)].avancement);
     $("#serie-livre").html(retour[(0)].titreSerie);
     $("#volume").html(retour[(0)].volume);
