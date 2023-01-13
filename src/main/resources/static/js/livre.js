@@ -21,6 +21,7 @@ if (localStorage.idLivre == null) {
     $("#titre").html(retour[(0)].titre);
     $("#auteur-livre").html(retour[(0)].auteur);
     $("#illustrateur").html(retour[(0)].illustrateur);
+    $("#couverture").attr("src", retour[(0)].couverture);
     $("#type").html(retour[(0)].genre);
     $("#type1").html(retour[(0)].type);
     $("#editeur").html(retour[(0)].editeur);
