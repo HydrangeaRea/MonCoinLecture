@@ -105,7 +105,7 @@ public class MainWebController {
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("Le crime de l'orient express", "", "", "", "Agatha Christie", "Aucun", "Hachette", "Policier", "Roman", new Date("16/11/1934"), "https://www.babelio.com/couv/CVT_10230_671170.jpg",  "Dans l'Orient-Express bloqué par la neige, le fameux détective Hercule Poirot  mène l'enquête. Puisque le criminel ne peut être que dans le wagon, il lui faut examiner tous les éléments: les douze voyageurs de nationalités différentes, les douze coups de poignard, et les alibis de chacun...");
+        Livres livres= new Livres("Hunter X hunter tome 9", "Hunter X hunter", "9/34", "En cours", "Yoshihiro Togashi", "Yoshihiro Togashi", "Hachette", "Shonen", "Manga", new Date("04/18/2007"), "https://static.fnac-static.com/multimedia/Images/FR/NR/70/67/12/1206128/1540-1/tsp20220703134522/Hunter-X-Hunter.jpg",  "Abandonné par son père qui est un Hunter, à la fois un aventurier et un chasseur de primes, Gon décide à l'âge de 12 ans de partir pour devenir un Hunter. Cela ne sera pas chose aisée, il devra passer une suite de tests et examens en compagnie de milliers d'autres prétendants au titre de Hunter.");
         livresRepositoryInterface.save(livres);
         return livres;
     }
