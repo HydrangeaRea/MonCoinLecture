@@ -1,8 +1,10 @@
+console.log("http://localhost:8080/API/voirTousLesAvis/"+sessionStorage.pseudo);
+
 $.get("http://localhost:8080/API/voirTousLesAvis/"+sessionStorage.pseudo, function (retour) {
     let nombre = retour.length;
 
     let nb = nombre;
-
+console.log(retour);
     //Création des lignes
     for (let i = 0; i < nombre; i++) {
         $("#listeid" + i).after(
@@ -12,21 +14,22 @@ $.get("http://localhost:8080/API/voirTousLesAvis/"+sessionStorage.pseudo, functi
             '<td id="avancement-livre'+(i+1)+'">lu</td>' +
             '<td id="avis'+(i+1)+'">5/5</td>' +
             '<td id="commentaire'+(i+1)+'"> <button class="afficher-commentaire">Commentaire</button><br>' +
-            '<button id="bouton-livre'+(i+1)+'">Fiche du livre</button><br>' +
-            '<button id="bouton-suggestion'+(i+1)+'">Suggestions</button></td></tr>'
+            '<button id="bouton-livre'+(i+1)+'">Fiche du livre</button><br>'
 
         )
     };
 
     //Remplissage des lignes
     for (let i = 1; i <= nombre; i++) {
+        console.log("id");
         console.log(retour[i - 1].id);
+        console.log("retour");
         console.log(retour[i-1])
         $("#miniature-couverture" + i).attr("src", retour[(i - 1)].livre.couverture); //Je trouve pas l'erreur
         $("#titre-livre" + i).html(retour[(i - 1)].livre.titre);
         $("#avancement-livre" + i).html(retour[(i - 1)].avancement);
         $("#avis" + i).html(retour[(i - 1)].note+"/5");
-        
+        $("#bouton-livre" + i).html('<a href="livre.html?ouvrage='+retour[(i-1)].livre.titre+'&">Fiche du livre</a>');
 
     }; 
 

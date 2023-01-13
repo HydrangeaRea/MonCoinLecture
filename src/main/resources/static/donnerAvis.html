@@ -18,11 +18,12 @@
     <div class="container">
         <aside class="membre-placeholder"></aside>
         <section class="block_content">
-            <div><span>Pseudo&ensp;</span><input disabled="disabled" type="text" id="input_pseudo" required minlength="2" maxlength="4" size="10"></div><br>
+            <b><div id="messageAvis"></div></b> <br>
+            <div><span>ID Utilisateur : </span><input disabled="disabled" type="text" id="input_pseudo" required minlength="2" maxlength="4" size="10"></div><br>
 
-            <div><span>Nom du livre &ensp;</span><input disabled="disabled" type="text" id="input_nom_livre" required minlength="2" maxlength="4" size="10"></div><br>
+            <div><span>ID Livre : </span><input disabled="disabled" type="text" id="input_nom_livre" required minlength="2" maxlength="4" size="10"></div><br>
 
-            <div>Evaluation &ensp;<select id="note" name="evalutation">
+            <div>Evaluation :&ensp;<select id="note" name="evalutation">
                 <option value=null>Je ne sais pas.</option>
                 <option value=0>0</option>
                 <option value=1>1</option>
@@ -32,14 +33,13 @@
                 <option value=5>5</option>
             </select></div><br>
 
-            <div>Avancement de la lecture &ensp;<select id="avancement" name="avancement">
+            <div>Avancement de la lecture :&ensp;<select id="avancement" name="avancement">
                 <option value="Lu">Lu</option>
                 <option value="En cours de lecture">En cours de lecture</option>
                 <option value="A lire">A lire</option>
             </select></div><br>
 
-            <div><span>Entrer commentaire &ensp;</span><input type="text" id="input_commentaire" required minlength="2" maxlength="500" size="60"></div><br>
-            <div><span>Entrer suggestion livre &ensp;</span><input type="text" id="input_suggestion_livre" required minlength="2" maxlength="4" size="10"></div><br>
+            <div><span>Entrer un commentaire sur le livre : <br>&ensp;</span><input type="text" id="input_commentaire" required minlength="2" maxlength="500" size="60"></div><br>
 
             <div id="div_bouton_ok"><button id="bouton_ok" onclick="getValue()" ;> Valider </button></div><br>
             <div id="attention">Attention, pour déposer un avis sur MonCoinLecture, il faut être inscrit sur le site.</div><br>
