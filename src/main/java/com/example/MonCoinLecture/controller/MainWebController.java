@@ -102,7 +102,7 @@ public class MainWebController {
 
     @GetMapping("/ajouterUnLivre")
     public Livres ajout_livre(){
-        Livres livres= new Livres("Dragon Ball tome 1", "Dragon Ball", "1/21", "lu", "Akira Toriyama", "Aucun", "Gallimard", "Shonen", "Manga", null, null,  "Bonjour");
+        Livres livres= new Livres("Le crime de l'orient express", "", "", "", "Agatha Christie", "Aucun", "Hachette", "Policier", "Roman", new Date("16/11/1934"), "https://www.babelio.com/couv/CVT_10230_671170.jpg",  "Dans l'Orient-Express bloqué par la neige, le fameux détective Hercule Poirot  mène l'enquête. Puisque le criminel ne peut être que dans le wagon, il lui faut examiner tous les éléments: les douze voyageurs de nationalités différentes, les douze coups de poignard, et les alibis de chacun...");
         livresRepositoryInterface.save(livres);
         return livres;
     }
@@ -174,7 +174,7 @@ public class MainWebController {
     public String ajoutLivresEnBaseTest () {
         Livres livre1 = new Livres("Harry Potter à l'école des sorciers", "Harry Potter", "1/7", "Terminée",
                 "J. K. Rowling", "NULL", "Gallimard", "Fantasy", "Roman",
-                new Date("16/11/1998"), "src=img / harry_potter_tome_1.jpg", "Le jour de ses onze ans, " +
+                new Date("16/11/1998"), "img / harry_potter_tome_1.jpg", "Le jour de ses onze ans, " +
                 "Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. " +
                 "Un géant vient le chercher pour l'emmener à Poudlard, la célèbre école de sorcellerie où une place l'attend " +
                 "depuis toujours. Voler sur des balais, jeter des sorts, combattre les Trolls : Harry Potter se révèle un sorcier " +
